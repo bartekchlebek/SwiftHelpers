@@ -15,6 +15,17 @@ extension SequenceType {
 	}
 }
 
+extension SequenceType {
+    private func findFirst(evaluate: Self.Generator.Element -> Bool) -> Self.Generator.Element? {
+        for element in self {
+            if evaluate(element) {
+                return element
+            }
+        }
+        return nil
+    }
+}
+
 public protocol Identifiable {
 	associatedtype EquatableIDType: Equatable
 	var ID: EquatableIDType { get }
@@ -37,8 +48,8 @@ public struct DiffContext<T> {
 	public var oldItemsContainItem: T -> Bool
 	public var newItemsContainItem: T -> Bool
 
-	public var oldItemsIndexOfItem: T -> Int?
-	public var newItemsIndexOfItem: T -> Int?
+	public var oldItemWithSameIDAsItem: T -> T?
+	public var newItemWithSameIDAsItem: T -> T?
 
 	public var isSameInstanceComparator: (T, T) -> Bool
 	public var isEqualComparator: (T, T) -> Bool
@@ -47,16 +58,16 @@ public struct DiffContext<T> {
 	            newItems: [T],
 	            oldItemsContainItem: T -> Bool,
 	            newItemsContainItem: T -> Bool,
-	            oldItemsIndexOfItem: T -> Int?,
-	            newItemsIndexOfItem: T -> Int?,
+	            oldItemWithSameIDAsItem: T -> T?,
+	            newItemWithSameIDAsItem: T -> T?,
 	            isSameInstanceComparator: (T, T) -> Bool,
 	            isEqualComparator: (T, T) -> Bool) {
 		self.oldItems = oldItems
 		self.newItems = newItems
 		self.oldItemsContainItem = oldItemsContainItem
 		self.newItemsContainItem = newItemsContainItem
-		self.oldItemsIndexOfItem = oldItemsIndexOfItem
-		self.newItemsIndexOfItem = newItemsIndexOfItem
+		self.oldItemWithSameIDAsItem = oldItemWithSameIDAsItem
+		self.newItemWithSameIDAsItem = newItemWithSameIDAsItem
 		self.isSameInstanceComparator = isSameInstanceComparator
 		self.isEqualComparator = isEqualComparator
 	}
@@ -72,7 +83,7 @@ public struct IndexDiff {
 		let oldItems = context.oldItems
 		let newItems = context.newItems
 		let newItemsContainItem = context.newItemsContainItem
-		let newItemsIndexOfItem = context.newItemsIndexOfItem
+		let newItemWithSameIDAsItem = context.newItemWithSameIDAsItem
 		let isSameInstanceComparator = context.isSameInstanceComparator
 		let isEqualComparator = context.isEqualComparator
 
@@ -159,8 +170,8 @@ public struct IndexDiff {
 					movedIndexes.append(ItemUpdateInfo(from: index, to: newIndex))
 				}
 
-				guard let newItemIndex = newItemsIndexOfItem(lhs) else { continue }
-				if !isEqualComparator(newItems[newItemIndex], lhs) {
+				guard let newItem = newItemWithSameIDAsItem(lhs) else { continue }
+				if !isEqualComparator(newItem, lhs) {
 					updatedIndexes.append(index)
 				}
 
@@ -190,7 +201,7 @@ public struct Diff<T> {
 		let newItemsContainItem = context.newItemsContainItem
 		let oldItemsContainItem = context.oldItemsContainItem
 		let isEqualComparator = context.isEqualComparator
-		let newItemsIndexOfItem = context.newItemsIndexOfItem
+		let newItemWithSameIDAsItem = context.newItemWithSameIDAsItem
 
 		var removedItems: [T] = []
 		var addedItems: [T] = []
@@ -209,8 +220,8 @@ public struct Diff<T> {
 		}
 
 		for item in oldItems {
-			if let index = newItemsIndexOfItem(item) where !isEqualComparator(item, newItems[index]) {
-				let itemUpdateInfo = ItemUpdateInfo(from: item, to: newItems[index])
+			if let newItem = newItemWithSameIDAsItem(item) where !isEqualComparator(item, newItem) {
+				let itemUpdateInfo = ItemUpdateInfo(from: item, to: newItem)
 				updatedItems.append(itemUpdateInfo)
 			}
 		}
@@ -234,8 +245,8 @@ extension DiffContext {
 			newItems: newItems,
 			oldItemsContainItem: { itemsContainItem(oldItems, $0) },
 			newItemsContainItem: { itemsContainItem(newItems, $0) },
-			oldItemsIndexOfItem: { indexOfItemInItems($0, oldItems) },
-			newItemsIndexOfItem: { indexOfItemInItems($0, newItems) },
+			oldItemWithSameIDAsItem: { item in oldItems.findFirst { isSameInstanceComparator($0, item) } },
+			newItemWithSameIDAsItem: { item in newItems.findFirst { isSameInstanceComparator($0, item) } },
 			isSameInstanceComparator: isSameInstanceComparator,
 			isEqualComparator: isEqualComparator
 		)
@@ -253,8 +264,8 @@ extension DiffContext {
 			newItems: newItems,
 			oldItemsContainItem: { item in oldItems.contains { isSameInstanceComparator($0, item) } },
 			newItemsContainItem: { item in newItems.contains { isSameInstanceComparator($0, item) } },
-			oldItemsIndexOfItem: { item in oldItems.indexOf { isSameInstanceComparator($0, item) } },
-			newItemsIndexOfItem: { item in newItems.indexOf { isSameInstanceComparator($0, item) } },
+			oldItemWithSameIDAsItem: { item in oldItems.findFirst { isSameInstanceComparator($0, item) } },
+			newItemWithSameIDAsItem: { item in newItems.findFirst { isSameInstanceComparator($0, item) } },
 			isSameInstanceComparator: isSameInstanceComparator,
 			isEqualComparator: isEqualComparator
 		)
@@ -291,8 +302,8 @@ extension DiffContext {
 			newItems: newItems,
 			oldItemsContainItem: { oldItemsMap[instanceIdentifierGetter($0)] != nil } ,
 			newItemsContainItem: { newItemsMap[instanceIdentifierGetter($0)] != nil },
-			oldItemsIndexOfItem: { item in oldItems.indexOf { haveSameID($0, item) } },
-			newItemsIndexOfItem: { item in newItems.indexOf { haveSameID($0, item) } },
+			oldItemWithSameIDAsItem: { oldItemsMap[instanceIdentifierGetter($0)] },
+			newItemWithSameIDAsItem: { newItemsMap[instanceIdentifierGetter($0)] },
 			isSameInstanceComparator: { haveSameID($0, $1) },
 			isEqualComparator: isEqualComparator
 		)

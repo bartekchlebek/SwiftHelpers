@@ -199,8 +199,8 @@ final class DiffTests: XCTestCase {
 			newItems: testScenario.newItems,
 			oldItemsContainItem: { item in testScenario.oldItems.contains { $0.ID == item.ID} },
 			newItemsContainItem: { item in testScenario.newItems.contains { $0.ID == item.ID} },
-			oldItemsIndexOfItem: { item in testScenario.oldItems.indexOf { $0.ID == item.ID } },
-			newItemsIndexOfItem: { item in testScenario.newItems.indexOf { $0.ID == item.ID } },
+			oldItemWithSameIDAsItem: { item in testScenario.oldItems.indexOf { $0.ID == item.ID }.map { testScenario.oldItems[$0] } },
+			newItemWithSameIDAsItem: { item in testScenario.newItems.indexOf { $0.ID == item.ID }.map { testScenario.newItems[$0] } },
 			isSameInstanceComparator: { $0.ID == $1.ID },
 			isEqualComparator: { ($0.ID == $1.ID) && ($0.property == $1.property) }
 		)
