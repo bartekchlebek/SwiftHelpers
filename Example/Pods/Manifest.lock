@@ -1,7 +1,9 @@
 PODS:
   - Nimble (3.2.0)
   - Quick (0.9.1)
-  - SwiftHelpers (0.1.0)
+  - SwiftHelpers (0.1.0):
+    - SwiftHelpers/Diff (= 0.1.0)
+  - SwiftHelpers/Diff (0.1.0)
 
 DEPENDENCIES:
   - Nimble (~> 3.0)
@@ -15,6 +17,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Quick: a5221fc21788b6aeda934805e68b061839bc3165
-  SwiftHelpers: f0b70ec1130adf6f6a866ae24786e304ae7c7348
+  SwiftHelpers: 2b11da2da8c43da82d6058e1701ee0a14734ccdb
 
 COCOAPODS: 0.39.0
