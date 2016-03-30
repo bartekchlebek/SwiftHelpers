@@ -3,29 +3,6 @@ public struct ItemUpdateInfo<T> {
 	public var to: T
 }
 
-extension SequenceType {
-	typealias Element = Generator.Element
-
-	private func dictionaryWithKeyForItem<U: Hashable>(IDGetterForItem: (Element) -> U) -> [U: Element] {
-		var dictionary = Dictionary<U, Element>(minimumCapacity: self.underestimateCount())
-		for item in self {
-			dictionary[IDGetterForItem(item)] = item
-		}
-		return dictionary
-	}
-}
-
-extension SequenceType {
-    private func findFirst(evaluate: Self.Generator.Element -> Bool) -> Self.Generator.Element? {
-        for element in self {
-            if evaluate(element) {
-                return element
-            }
-        }
-        return nil
-    }
-}
-
 public protocol Identifiable {
 	associatedtype EquatableIDType: Equatable
 	var ID: EquatableIDType { get }
@@ -86,7 +63,7 @@ public struct IndexDiff {
 		let newItemWithSameIDAsItem = context.newItemWithSameIDAsItem
 		let isSameInstanceComparator = context.isSameInstanceComparator
 		let isEqualComparator = context.isEqualComparator
-
+        
 		var rows = Array<Row<T>>()
 
 		var newIndex = 0
@@ -292,8 +269,8 @@ extension DiffContext {
 	            instanceIdentifierGetter: T -> U,
 	            isEqualComparator: (T, T) -> Bool) {
 
-		let oldItemsMap = oldItems.dictionaryWithKeyForItem(instanceIdentifierGetter)
-		let newItemsMap = newItems.dictionaryWithKeyForItem(instanceIdentifierGetter)
+        let oldItemsMap = Dictionary(sequence: oldItems, usingKeyForSequenceElement: instanceIdentifierGetter)
+        let newItemsMap = Dictionary(sequence: newItems, usingKeyForSequenceElement: instanceIdentifierGetter)
 
 		let haveSameID: (T, T) -> Bool = { instanceIdentifierGetter($0) == instanceIdentifierGetter($1) }
 
