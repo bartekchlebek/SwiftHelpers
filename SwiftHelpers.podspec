@@ -38,6 +38,10 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
 
   s.subspec 'Diff' do |cs|
-    cs.source_files = 'Pod/Classes/Diff/*'
-	end
+    cs.source_files = [
+      'Pod/Classes/Diff/*',
+      'Pod/Classes/Dictionary/Dictionary+SequenceMap.swift',
+      'Pod/Classes/SequenceType/SequenceType+Find.swift'
+    ]
+  end
 end
