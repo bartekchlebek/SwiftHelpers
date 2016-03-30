@@ -68,8 +68,8 @@ extension DiffContext {
 	            instanceIdentifierGetter: T -> U,
 	            isEqualComparator: (T, T) -> Bool) {
 		
-		let oldItemsMap = Dictionary(sequence: oldItems, usingKeyForSequenceElement: instanceIdentifierGetter)
-		let newItemsMap = Dictionary(sequence: newItems, usingKeyForSequenceElement: instanceIdentifierGetter)
+		let oldItemsMap = Dictionary(fromSequence: oldItems, usingKeyForSequenceElement: instanceIdentifierGetter)
+		let newItemsMap = Dictionary(fromSequence: newItems, usingKeyForSequenceElement: instanceIdentifierGetter)
 		
 		let haveSameID: (T, T) -> Bool = { instanceIdentifierGetter($0) == instanceIdentifierGetter($1) }
 		

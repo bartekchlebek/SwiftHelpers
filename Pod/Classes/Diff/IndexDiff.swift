@@ -7,7 +7,7 @@ public struct IndexDiff {
 	public var addedIndexes: [Int]
 	public var removedIndexes: [Int]
 	public var updatedIndexes: [Int]
-	public var movedIndexes: [ItemUpdateInfo<Int>]
+	public var movedIndexes: [ChangeDescriptor<Int>]
 	
 	public init<T>(_ context: DiffContext<T>) {
 		let oldItems = context.oldItems
@@ -75,7 +75,7 @@ public struct IndexDiff {
 		
 		let newRowsWithoutNils = rows.filter { $0.rhs != nil }
 		
-		var movedIndexes: [ItemUpdateInfo<Int>] = []
+		var movedIndexes: [ChangeDescriptor<Int>] = []
 		var addedIndexes: [Int] = []
 		var removedIndexes: [Int] = []
 		var updatedIndexes: [Int] = []
@@ -97,7 +97,7 @@ public struct IndexDiff {
 			case (let lhs?, _?):
 				guard let newIndex = newRowsWithoutNils.indexOf({ isSameInstanceComparator(lhs, $0.rhs!) }) else { continue }
 				if (newIndex + removalShift - insertionShift) != index {
-					movedIndexes.append(ItemUpdateInfo(from: index, to: newIndex))
+					movedIndexes.append(ChangeDescriptor(from: index, to: newIndex))
 				}
 				
 				guard let newItem = newItemWithSameIDAsItem(lhs) else { continue }

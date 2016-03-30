@@ -1,15 +1,10 @@
-public struct ItemUpdateInfo<T> {
-	public var from: T
-	public var to: T
-}
-
 public struct Diff<T> {
 	public var oldItems: [T]
 	public var newItems: [T]
 	
 	public var added: [T]
 	public var removed: [T]
-	public var updated: [ItemUpdateInfo<T>]
+	public var updated: [ChangeDescriptor<T>]
 	
 	public init(_ context: DiffContext<T>) {
 		self.oldItems = context.oldItems
@@ -22,23 +17,23 @@ public struct Diff<T> {
 		
 		var removedItems: [T] = []
 		var addedItems: [T] = []
-		var updatedItems: [ItemUpdateInfo<T>] = []
+		var updatedItems: [ChangeDescriptor<T>] = []
 		
-		for item in oldItems {
-			if !newItemsContainItem(item) {
-				removedItems.append(item)
+		for oldItem in oldItems {
+			if !newItemsContainItem(oldItem) {
+				removedItems.append(oldItem)
 			}
 		}
 		
-		for item in newItems {
-			if !oldItemsContainItem(item) {
-				addedItems.append(item)
+		for newItem in newItems {
+			if !oldItemsContainItem(newItem) {
+				addedItems.append(newItem)
 			}
 		}
 		
-		for item in oldItems {
-			if let newItem = newItemWithSameIDAsItem(item) where !isEqualComparator(item, newItem) {
-				let itemUpdateInfo = ItemUpdateInfo(from: item, to: newItem)
+		for oldItem in oldItems {
+			if let newItem = newItemWithSameIDAsItem(oldItem) where !isEqualComparator(oldItem, newItem) {
+				let itemUpdateInfo = ChangeDescriptor(from: oldItem, to: newItem)
 				updatedItems.append(itemUpdateInfo)
 			}
 		}

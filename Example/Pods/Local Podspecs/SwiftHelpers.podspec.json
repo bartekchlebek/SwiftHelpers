@@ -25,7 +25,11 @@
   "subspecs": [
     {
       "name": "Diff",
-      "source_files": "Pod/Classes/Diff/*"
+      "source_files": [
+        "Pod/Classes/Diff/*",
+        "Pod/Classes/Dictionary/Dictionary+SequenceMap.swift",
+        "Pod/Classes/SequenceType/SequenceType+Find.swift"
+      ]
     }
   ]
 }

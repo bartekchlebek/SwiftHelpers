@@ -1,5 +1,5 @@
 extension Dictionary {
-	public init<T where T: SequenceType, T.Generator.Element == Value>(sequence: T,
+	public init<T where T: SequenceType, T.Generator.Element == Value>(fromSequence sequence: T,
 	            usingKeyForSequenceElement keyForSequenceElement: T.Generator.Element -> Key) {
 		
 		var dictionary = Dictionary<Key, Value>(minimumCapacity: sequence.underestimateCount())
