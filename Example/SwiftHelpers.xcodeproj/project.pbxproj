@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D05B3341CADE37100400C45 /* dispatch_queue_t+CancellableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05B3331CADE37100400C45 /* dispatch_queue_t+CancellableTests.swift */; };
+		0D05B3361CADEAB400400C45 /* dispatch_queue_t+ConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05B3351CADEAB400400C45 /* dispatch_queue_t+ConvenienceTests.swift */; };
+		0D05B3381CADEC7100400C45 /* dispatch_semaphore_t+ConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D05B3371CADEC7100400C45 /* dispatch_semaphore_t+ConvenienceTests.swift */; };
 		0E94C41E3D92F46AE288D9A3 /* Pods_SwiftHelpers_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BFB05D49B83E9E7498B932 /* Pods_SwiftHelpers_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* DiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* DiffTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D05B3331CADE37100400C45 /* dispatch_queue_t+CancellableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "dispatch_queue_t+CancellableTests.swift"; sourceTree = "<group>"; };
+		0D05B3351CADEAB400400C45 /* dispatch_queue_t+ConvenienceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "dispatch_queue_t+ConvenienceTests.swift"; sourceTree = "<group>"; };
+		0D05B3371CADEC7100400C45 /* dispatch_semaphore_t+ConvenienceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "dispatch_semaphore_t+ConvenienceTests.swift"; sourceTree = "<group>"; };
 		165A1A764F728528EFF97B32 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1D1240A057BF063F84042319 /* Pods-SwiftHelpers_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftHelpers_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftHelpers_Tests/Pods-SwiftHelpers_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		57BFB05D49B83E9E7498B932 /* Pods_SwiftHelpers_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftHelpers_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,7 +26,7 @@
 		607FACEB1AFB9204008FA782 /* DiffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffTests.swift; sourceTree = "<group>"; };
 		6472C71CD4D178E4DA547B0D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6743485D624EB680AEA0D9DE /* Pods-SwiftHelpers_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftHelpers_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftHelpers_Tests/Pods-SwiftHelpers_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		CAD3289F671AD143972A7745 /* SwiftHelpers.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftHelpers.podspec; path = ../SwiftHelpers.podspec; sourceTree = "<group>"; };
+		CAD3289F671AD143972A7745 /* SwiftHelpers.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftHelpers.podspec; path = ../SwiftHelpers.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,9 @@
 			children = (
 				607FACEB1AFB9204008FA782 /* DiffTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				0D05B3331CADE37100400C45 /* dispatch_queue_t+CancellableTests.swift */,
+				0D05B3351CADEAB400400C45 /* dispatch_queue_t+ConvenienceTests.swift */,
+				0D05B3371CADEC7100400C45 /* dispatch_semaphore_t+ConvenienceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -222,6 +231,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* DiffTests.swift in Sources */,
+				0D05B3361CADEAB400400C45 /* dispatch_queue_t+ConvenienceTests.swift in Sources */,
+				0D05B3341CADE37100400C45 /* dispatch_queue_t+CancellableTests.swift in Sources */,
+				0D05B3381CADEC7100400C45 /* dispatch_semaphore_t+ConvenienceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
