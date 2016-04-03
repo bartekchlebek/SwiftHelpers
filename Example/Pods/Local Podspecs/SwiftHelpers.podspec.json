@@ -26,6 +26,10 @@
         "Pod/Classes/Dictionary/Dictionary+SequenceMap.swift",
         "Pod/Classes/SequenceType/SequenceType+Find.swift"
       ]
+    },
+    {
+      "name": "Dispatch",
+      "source_files": "Pod/Classes/Dispatch/*"
     }
   ]
 }

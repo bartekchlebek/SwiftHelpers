@@ -22,4 +22,7 @@ Pod::Spec.new do |s|
       'Pod/Classes/SequenceType/SequenceType+Find.swift'
     ]
   end
+  s.subspec 'Dispatch' do |cs|
+    cs.source_files = 'Pod/Classes/Dispatch/*'
+  end
 end
