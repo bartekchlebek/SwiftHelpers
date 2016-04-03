@@ -11,7 +11,7 @@ private func areRendersOfImagesEqual(lhs: CGImage, _ rhs: CGImage) -> Bool {
 	// Based on FBSnapshotTestCase's implementation. Props to those guys.
 	// https://github.com/facebook/ios-snapshot-test-case/blob/master/FBSnapshotTestCase/Categories/UIImage%2BCompare.m
 
-	guard CGSizeEqualToSize(lhs.size, rhs.size) else { return false }
+	guard lhs.size == rhs.size else { return false }
 	let minimumBytesPerRow = min(lhs.bytesPerRow, rhs.bytesPerRow)
 
 	let imageSizeBytes = lhs.height * minimumBytesPerRow
