@@ -1,8 +1,8 @@
 {
   "name": "SwiftHelpers",
   "version": "0.1.0",
-  "summary": "A short description of SwiftHelpers.",
-  "description": "Swift helpers I commonly use",
+  "summary": "Various Swift helper, extension and convenience stuff.",
+  "description": "A collection of various simple helpers and extensions, mostly Swift-only.",
   "homepage": "https://github.com/bartekchlebek/SwiftHelpers",
   "license": "MIT",
   "authors": {
@@ -12,16 +12,12 @@
     "git": "https://github.com/bartekchlebek/SwiftHelpers.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/bartekchlebek",
   "platforms": {
     "ios": "8.0"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "SwiftHelpers": [
-      "Pod/Assets/*.png"
-    ]
-  },
   "subspecs": [
     {
       "name": "Diff",
