@@ -12,8 +12,8 @@ public final class CancelationToken {
 	}
 }
 
-extension dispatch_queue_t {
-	public func cancellableDispatchAfter(seconds: Double, block: () -> Void) -> CancelationToken {
+public extension dispatch_queue_t {
+	func cancellableDispatchAfter(seconds: Double, block: () -> Void) -> CancelationToken {
 		let cancelationToken = CancelationToken()
 
 		self.dispatchAfter(seconds) {

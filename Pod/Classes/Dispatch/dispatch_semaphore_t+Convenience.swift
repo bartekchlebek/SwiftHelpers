@@ -1,11 +1,11 @@
 import Dispatch
 
-extension dispatch_semaphore_t {
-	public func waitForever() {
+public extension dispatch_semaphore_t {
+	func waitForever() {
 		dispatch_semaphore_wait(self, DISPATCH_TIME_FOREVER)
 	}
 
-	public func signal() {
+	func signal() {
 		dispatch_semaphore_signal(self)
 	}
 }
