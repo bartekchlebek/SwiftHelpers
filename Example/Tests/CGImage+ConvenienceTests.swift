@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SwiftHelpers
 
-private final class CGImage_ConvenienceTests: XCTestCase {
+final class CGImage_ConvenienceTests: XCTestCase {
 
 	private let imageForTests = {
 		return try! CGImage.imageWithSize(CGSizeMake(100, 50)) { (context, size) in
