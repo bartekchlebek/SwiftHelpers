@@ -1,7 +1,7 @@
 import Foundation
 
 public extension String {
-	init(pathComponents pathComponents: [String]) {
+	init(pathComponents: [String]) {
 		self = NSString.pathWithComponents(pathComponents)
 	}
 
