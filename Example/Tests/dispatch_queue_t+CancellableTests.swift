@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SwiftHelpers
 
-private final class dispatch_queue_t_CancellableTests: XCTestCase {
+final class dispatch_queue_t_CancellableTests: XCTestCase {
 
 	func testWithoutCancelation() {
 		var blockExecuted = false

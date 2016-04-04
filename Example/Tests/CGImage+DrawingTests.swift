@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SwiftHelpers
 
-private final class CGImage_DrawingTests: XCTestCase {
+final class CGImage_DrawingTests: XCTestCase {
 
 	func drawTestImageInContext(context: CGContext, size: CGSize) {
 		// blue background

@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SwiftHelpers
 
-private final class String_NSStringBridge: XCTestCase {
+final class String_NSStringBridge: XCTestCase {
 
 	func testNSStringPathWithComponents() {
 		let components = ["/", "User", "Files", "file.png"]
