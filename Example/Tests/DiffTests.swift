@@ -168,7 +168,7 @@ let fastIdentifiableEquatableTestScenario = TestScenario(fromScenario: testScena
 	FastIdentifiableEquatableDiffedItem(ID: $0.ID, property: $0.property)
 }
 
-private final class DiffTests: XCTestCase {
+final class DiffTests: XCTestCase {
 
 	func performTestWithContext<T>(context: DiffContext<T>,
 	                            testScenario: TestScenario<T>,
