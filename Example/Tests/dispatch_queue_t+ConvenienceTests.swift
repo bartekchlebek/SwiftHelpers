@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SwiftHelpers
 
-private final class dispatch_queue_t_ConvenienceTests: XCTestCase {
+final class dispatch_queue_t_ConvenienceTests: XCTestCase {
 
 	func testDispatchSync() {
 		let queue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
