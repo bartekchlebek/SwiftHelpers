@@ -41,6 +41,15 @@ DiffContext.init(oldItems: [T],
                  isEqualComparator: (T, T) -> Bool)
 ```
 
+### CGImage+Drawing
+
+```swift
+let image = try CGImage.imageWithSize(CGSizeMake(256, 256)) { (context, size) in
+  // Just draw to context with your usual Core Graphics code.
+  // On iOS CGContext's coordinate space will be automatically flipped and translated so that (0, 0) is at the top-left corner.
+}
+```
+
 ## Installation
 
 To install it, simply add the following line to your Podfile:
