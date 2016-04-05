@@ -41,6 +41,20 @@ DiffContext.init(oldItems: [T],
                  isEqualComparator: (T, T) -> Bool)
 ```
 
+### UIControl+Blocks
+
+Block-based `UIControl` extension instead of the classic target-action.
+
+```
+let token = control.addActionForControlEvents(.TouchUpInside) { (sender, event) in
+  // handle touchUpInside
+}
+
+// If you want to be able to unregister action handler
+// you need to keep the returned token around and call
+control.removeActionWithToken(token)
+```
+
 ## Installation
 
 To install it, simply add the following line to your Podfile:
