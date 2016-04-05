@@ -43,7 +43,7 @@ DiffContext.init(oldItems: [T],
 
 ### CGImage+Drawing
 
-Convenience method, that's sets up a `CGContext` to draw to and returns a `CGImage`.
+Convenience method, that sets up a `CGContext` to draw to and returns a `CGImage`.
 
 ```swift
 let image = try CGImage.imageWithSize(CGSizeMake(256, 256)) { (context, size) in
