@@ -94,5 +94,5 @@ final class CGImage_DrawingTests: XCTestCase {
 
 		expect(image).to(matchReferenceImageNamed("SwiftLogo"))
 	}
-	
+
 }
