@@ -55,12 +55,24 @@ let token = control.addActionForControlEvents(.TouchUpInside) { (sender, event) 
 control.removeActionWithToken(token)
 ```
 
+### CGImage+Drawing
+
+Convenience method, that sets up a `CGContext` to draw to and returns a `CGImage`.
+
+```swift
+let image = try CGImage.imageWithSize(CGSizeMake(256, 256)) { (context, size) in
+  // Just draw to context with your usual Core Graphics code.
+  // On iOS CGContext's coordinate space will be automatically flipped and translated so that (0, 0) is at the top-left corner.
+}
+```
+
 ## Installation
 
-To install it, simply add the following line to your Podfile:
+To install it, simply add the following lines to your Podfile:
 
 ```ruby
-pod 'SwiftHelpers/Diff', :git => 'https://github.com/bartekchlebek/SwiftHelpers.git'
+source 'https://github.com/bartekchlebek/Specs.git'
+pod 'SwiftHelpers'
 ```
 
 ## Author
