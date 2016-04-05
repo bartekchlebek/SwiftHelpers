@@ -54,10 +54,11 @@ let image = try CGImage.imageWithSize(CGSizeMake(256, 256)) { (context, size) in
 
 ## Installation
 
-To install it, simply add the following line to your Podfile:
+To install it, simply add the following lines to your Podfile:
 
 ```ruby
-pod 'SwiftHelpers/Diff', :git => 'https://github.com/bartekchlebek/SwiftHelpers.git'
+source 'https://github.com/bartekchlebek/Specs.git'
+pod 'SwiftHelpers'
 ```
 
 ## Author
