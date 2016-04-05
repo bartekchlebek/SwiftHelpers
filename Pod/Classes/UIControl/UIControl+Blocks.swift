@@ -21,17 +21,11 @@ private var proxyTargetsAssociatedObjectTag: UInt8 = 0
 public extension UIControl {
 	typealias Action = (sender: UIControl, event: UIEvent) -> Void
 
-	final class ActionToken {
+	struct ActionToken {
 		private let key: String
-		private let onDeinit: ActionToken -> Void
 
-		private init(onDeinit: ActionToken -> Void) {
+		private init() {
 			self.key = NSUUID().UUIDString
-			self.onDeinit = onDeinit
-		}
-
-		deinit {
-			self.onDeinit(self)
 		}
 	}
 
@@ -49,11 +43,8 @@ public extension UIControl {
 		}
 	}
 
-	@warn_unused_result
 	func addActionForControlEvents(controlEvents: UIControlEvents, action: Action) -> ActionToken {
-
-		let token = ActionToken(onDeinit: { [weak self] in self?.removeActionWithToken($0) })
-
+		let token = ActionToken()
 		let proxyTarget = ProxyTarget(handler: action, events: controlEvents)
 		self.proxyTargets[token.key] = proxyTarget
 		self.addTarget(proxyTarget, action: ProxyTarget.selector, forControlEvents: controlEvents)
@@ -65,20 +56,5 @@ public extension UIControl {
 		guard let proxyHandler = self.proxyTargets[token.key] else { return }
 		self.removeTarget(proxyHandler, action: ProxyTarget.selector, forControlEvents: proxyHandler.events)
 		self.proxyTargets[token.key] = nil
-	}
-}
-
-public extension UIControl {
-	func addActionForControlEvents<T: AnyObject>(controlEvents: UIControlEvents, removedOnDeinitOf object: T,
-	                               action: (sender: UIControl, event: UIEvent, boundObject: T) -> Void) -> ActionToken {
-
-		let token = self.addActionForControlEvents(controlEvents) { [weak object] (sender, event) in
-			guard let boundObject = object else { return }
-			action(sender: sender, event: event, boundObject: boundObject)
-		}
-
-		onDeinitOfObject(object) { [weak self] in self?.removeActionWithToken(token) }
-
-		return token
 	}
 }
