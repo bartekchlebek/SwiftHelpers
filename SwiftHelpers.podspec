@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftHelpers"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Various Swift helper, extension and convenience stuff."
   s.description      = "A collection of various simple helpers and extensions, mostly Swift-only."
 
@@ -22,7 +22,12 @@ Pod::Spec.new do |s|
       'Pod/Classes/SequenceType/SequenceType+Find.swift'
     ]
   end
+
   s.subspec 'Dispatch' do |cs|
     cs.source_files = 'Pod/Classes/Dispatch/*'
+  end
+
+  s.subspec 'Optional' do |cs|
+    cs.source_files = 'Pod/Classes/Optional/*'
   end
 end
