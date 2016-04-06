@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/bartekchlebek/SwiftHelpers.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/bartekchlebek'
 
-  s.platform     = :ios, '9.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
@@ -21,5 +21,8 @@ Pod::Spec.new do |s|
       'Pod/Classes/Dictionary/Dictionary+SequenceMap.swift',
       'Pod/Classes/SequenceType/SequenceType+Find.swift'
     ]
+  end
+  s.subspec 'Dispatch' do |cs|
+    cs.source_files = 'Pod/Classes/Dispatch/*'
   end
 end
