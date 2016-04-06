@@ -66,6 +66,17 @@ let image = try CGImage.imageWithSize(CGSizeMake(256, 256)) { (context, size) in
 }
 ```
 
+### Optional+Convenience
+
+```swift
+let optional: Optional<T>
+optional.iff { object in
+  // called synchronously only if optional == .Some(T)
+  // object is the wrapped value
+  // if optional == .None, nothing happens
+}
+```
+
 ## Installation
 
 To install it, simply add the following lines to your Podfile:
