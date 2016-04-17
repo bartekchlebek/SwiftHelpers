@@ -108,8 +108,10 @@ final class CGImage_DrawingTests: XCTestCase {
 		let square = self.square()
 		let y = try! square.imageByApplyingBlurWithRadius(10)
 		let y2 = try! UIImage(CGImage: square, scale: 1, orientation: .Up).applyBlurWithRadius(10, tintColor: nil, saturationDeltaFactor: 1)
+		let y3 = try! square.imageByApplyingBlurWithRadius_apple(10)
 		expect(y).to(recordReferenceImageNamed("square"))
 		expect(y2?.CGImage!).to(recordReferenceImageNamed("square2"))
+		expect(y3).to(recordReferenceImageNamed("square3"))
 
 		expect(areRendersOfImagesEqual(y, y2!.CGImage!)).to(beTrue())
 

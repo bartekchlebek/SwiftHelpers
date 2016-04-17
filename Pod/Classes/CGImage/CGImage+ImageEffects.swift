@@ -37,14 +37,7 @@ public extension CGImage {
 
 			try CGImage.imageWithSize(self.size, flipped: false) { (effectInContext, size) in
 				let imageRect = CGRect(origin: CGPointZero, size: self.size)
-
-				CGContextDrawImage(effectInContext, imageRect, self)
-
-				let effectImage = try CGImage.imageWithSize(size, flipped: false) { (effectOutContext, size) in
-					var inBuffer = vImage_Buffer(context: effectInContext)
-					var outBuffer = vImage_Buffer(context: effectOutContext)
-					CGImage.vImageBoxConvolveOnSourceBuffer(&inBuffer, destinationBuffer: &outBuffer, radius: blurRadius)
-				}
+				let effectImage = try self.imageByApplyingBlurWithRadius(blurRadius)
 
 				CGContextDrawImage(context, imageRect, self)
 				CGContextDrawImage(context, imageRect, effectImage)
