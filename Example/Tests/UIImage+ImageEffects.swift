@@ -1,64 +1,108 @@
-import CoreGraphics
+/*
+File: UIImage+ImageEffects.m
+Abstract: This is a category of UIImage that adds methods to apply blur and tint effects to an image. This is the code you’ll want to look out to find out how to use vImage to efficiently calculate a blur.
+Version: 1.0
+
+Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
+Inc. ("Apple") in consideration of your agreement to the following
+terms, and your use, installation, modification or redistribution of
+this Apple software constitutes acceptance of these terms.  If you do
+not agree with these terms, please do not use, install, modify or
+redistribute this Apple software.
+
+In consideration of your agreement to abide by the following terms, and
+subject to these terms, Apple grants you a personal, non-exclusive
+license, under Apple's copyrights in this original Apple software (the
+"Apple Software"), to use, reproduce, modify and redistribute the Apple
+Software, with or without modifications, in source and/or binary forms;
+provided that if you redistribute the Apple Software in its entirety and
+without modifications, you must retain this notice and the following
+text and disclaimers in all such redistributions of the Apple Software.
+Neither the name, trademarks, service marks or logos of Apple Inc. may
+be used to endorse or promote products derived from the Apple Software
+without specific prior written permission from Apple.  Except as
+expressly stated in this notice, no other rights or licenses, express or
+implied, are granted by Apple herein, including but not limited to any
+patent rights that may be infringed by your derivative works or by other
+works in which the Apple Software may be incorporated.
+
+The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+
+IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+Copyright (C) 2013 Apple Inc. All Rights Reserved.
+
+
+Copyright © 2013 Apple Inc. All rights reserved.
+WWDC 2013 License
+
+NOTE: This Apple Software was supplied by Apple as part of a WWDC 2013
+Session. Please refer to the applicable WWDC 2013 Session for further
+information.
+
+IMPORTANT: This Apple software is supplied to you by Apple Inc.
+("Apple") in consideration of your agreement to the following terms, and
+your use, installation, modification or redistribution of this Apple
+software constitutes acceptance of these terms. If you do not agree with
+these terms, please do not use, install, modify or redistribute this
+Apple software.
+
+In consideration of your agreement to abide by the following terms, and
+subject to these terms, Apple grants you a non-exclusive license, under
+Apple's copyrights in this original Apple software (the "Apple
+Software"), to use, reproduce, modify and redistribute the Apple
+Software, with or without modifications, in source and/or binary forms;
+provided that if you redistribute the Apple Software in its entirety and
+without modifications, you must retain this notice and the following
+text and disclaimers in all such redistributions of the Apple Software.
+Neither the name, trademarks, service marks or logos of Apple Inc. may
+be used to endorse or promote products derived from the Apple Software
+without specific prior written permission from Apple. Except as
+expressly stated in this notice, no other rights or licenses, express or
+implied, are granted by Apple herein, including but not limited to any
+patent rights that may be infringed by your derivative works or by other
+works in which the Apple Software may be incorporated.
+
+The Apple Software is provided by Apple on an "AS IS" basis. APPLE MAKES
+NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE
+IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+
+IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+EA1002
+5/3/2013
+*/
+
+//
+//  UIImage.swift
+//  Today
+//
+//  Created by Alexey Globchastyy on 15/09/14.
+//  Copyright (c) 2014 Alexey Globchastyy. All rights reserved.
+//
+
+import UIKit
 import Accelerate
-
-private extension vImage_Buffer {
-	init(context: CGContext) {
-		let data = CGBitmapContextGetData(context)
-		let width = vImagePixelCount(CGBitmapContextGetWidth(context))
-		let height = vImagePixelCount(CGBitmapContextGetHeight(context))
-		let rowBytes = CGBitmapContextGetBytesPerRow(context)
-
-		self.init(data: data, height: height, width: width, rowBytes: rowBytes)
-	}
-}
-
-public extension CGImage {
-
-	func imageByApplyingBlurWithRadius(blurRadius: CGFloat) throws -> CGImage {
-		guard blurRadius > CGFloat(FLT_EPSILON) else { return self }
-
-		return try CGImage.imageWithSize(self.size, flipped: false) { (effectOutContext, size) in
-			try CGImage.imageWithSize(self.size, flipped: false) { (effectInContext, size) in
-				let imageRect = CGRect(origin: CGPointZero, size: self.size)
-				CGContextDrawImage(effectInContext, imageRect, self)
-
-				var inBuffer = vImage_Buffer(context: effectInContext)
-				var outBuffer = vImage_Buffer(context: effectOutContext)
-
-				CGImage.vImageBoxConvolveOnSourceBuffer(&inBuffer, destinationBuffer: &outBuffer, radius: blurRadius)
-			}
-		}
-	}
-
-	func imageByApplyingBlurWithRadius_apple(blurRadius: CGFloat) throws -> CGImage {
-		guard blurRadius > CGFloat(FLT_EPSILON) else { return self }
-
-		return try CGImage.imageWithSize(self.size, flipped: false) { (context, size) in
-			let imageRect = CGRect(origin: CGPointZero, size: self.size)
-			let effectImage = try self.imageByApplyingBlurWithRadius(blurRadius)
-
-			CGContextDrawImage(context, imageRect, self)
-			CGContextDrawImage(context, imageRect, effectImage)
-		}
-	}
-
-	private static func vImageBoxConvolveOnSourceBuffer(inout sourceBuffer: vImage_Buffer,
-	                                                          inout destinationBuffer: vImage_Buffer,
-	                                                                radius: CGFloat) {
-
-		var radius = UInt32(floor(radius * 3.0 * CGFloat(sqrt(2 * M_PI)) / 4 + 0.5))
-		if radius % 2 != 1 {
-			radius += 1 // force radius to be odd so that the three box-blur methodology works.
-		}
-
-		let imageEdgeExtendFlags = vImage_Flags(kvImageEdgeExtend)
-
-		vImageBoxConvolve_ARGB8888(&sourceBuffer, &destinationBuffer, nil, 0, 0, radius, radius, nil, imageEdgeExtendFlags)
-		vImageBoxConvolve_ARGB8888(&destinationBuffer, &sourceBuffer, nil, 0, 0, radius, radius, nil, imageEdgeExtendFlags)
-		vImageBoxConvolve_ARGB8888(&sourceBuffer, &destinationBuffer, nil, 0, 0, radius, radius, nil, imageEdgeExtendFlags)
-	}
-
-}
 
 public extension UIImage {
 	public func applyLightEffect() -> UIImage? {
@@ -113,7 +157,7 @@ public extension UIImage {
 		}
 
 		let __FLT_EPSILON__ = CGFloat(FLT_EPSILON)
-		let screenScale = CGFloat(1)//UIScreen.mainScreen().scale
+		let screenScale = UIScreen.mainScreen().scale
 		let imageRect = CGRect(origin: CGPointZero, size: size)
 		var effectImage = self
 

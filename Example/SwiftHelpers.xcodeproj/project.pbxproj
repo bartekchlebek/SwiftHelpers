@@ -21,6 +21,9 @@
 		0D4A4F6F1CB2F90E00B974E5 /* CGImage+ConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4A4F6C1CB2F90E00B974E5 /* CGImage+ConvenienceTests.swift */; };
 		0D4A4F701CB2F90E00B974E5 /* CGImage+DrawingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4A4F6D1CB2F90E00B974E5 /* CGImage+DrawingTests.swift */; };
 		0D4A4F721CB2F91500B974E5 /* String+NSStringBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4A4F711CB2F91500B974E5 /* String+NSStringBridgeTests.swift */; };
+		0DC4894C1CC42512005D4084 /* CGImage+ImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4894B1CC42512005D4084 /* CGImage+ImageEffects.swift */; };
+		0DC4894E1CC42552005D4084 /* SwiftLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4894D1CC42552005D4084 /* SwiftLogo.swift */; };
+		0DC489511CC42F15005D4084 /* UIImage+ImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC489501CC42F15005D4084 /* UIImage+ImageEffects.swift */; };
 		0E94C41E3D92F46AE288D9A3 /* Pods_SwiftHelpers_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BFB05D49B83E9E7498B932 /* Pods_SwiftHelpers_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* DiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* DiffTests.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,9 @@
 		0D4A4F6C1CB2F90E00B974E5 /* CGImage+ConvenienceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+ConvenienceTests.swift"; sourceTree = "<group>"; };
 		0D4A4F6D1CB2F90E00B974E5 /* CGImage+DrawingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+DrawingTests.swift"; sourceTree = "<group>"; };
 		0D4A4F711CB2F91500B974E5 /* String+NSStringBridgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSStringBridgeTests.swift"; sourceTree = "<group>"; };
+		0DC4894B1CC42512005D4084 /* CGImage+ImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+ImageEffects.swift"; sourceTree = "<group>"; };
+		0DC4894D1CC42552005D4084 /* SwiftLogo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftLogo.swift; sourceTree = "<group>"; };
+		0DC489501CC42F15005D4084 /* UIImage+ImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageEffects.swift"; sourceTree = "<group>"; };
 		165A1A764F728528EFF97B32 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1D1240A057BF063F84042319 /* Pods-SwiftHelpers_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftHelpers_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftHelpers_Tests/Pods-SwiftHelpers_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		57BFB05D49B83E9E7498B932 /* Pods_SwiftHelpers_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftHelpers_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +101,15 @@
 			path = "SwiftHelpers-iOSApp";
 			sourceTree = "<group>";
 		};
+		0DC4894F1CC42D56005D4084 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0DC4894D1CC42552005D4084 /* SwiftLogo.swift */,
+				0DC489501CC42F15005D4084 /* UIImage+ImageEffects.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		5C8091A7FB35286088E2754B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,9 +146,11 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0DC4894F1CC42D56005D4084 /* Utils */,
 				0D4A4F6B1CB2F90E00B974E5 /* CGImage+Compare.swift */,
 				0D4A4F6C1CB2F90E00B974E5 /* CGImage+ConvenienceTests.swift */,
 				0D4A4F6D1CB2F90E00B974E5 /* CGImage+DrawingTests.swift */,
+				0DC4894B1CC42512005D4084 /* CGImage+ImageEffects.swift */,
 				607FACEB1AFB9204008FA782 /* DiffTests.swift */,
 				0D05B3331CADE37100400C45 /* dispatch_queue_t+CancellableTests.swift */,
 				0D05B3351CADEAB400400C45 /* dispatch_queue_t+ConvenienceTests.swift */,
@@ -334,12 +351,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* DiffTests.swift in Sources */,
+				0DC489511CC42F15005D4084 /* UIImage+ImageEffects.swift in Sources */,
 				0D4A4F521CB2E7D000B974E5 /* UIControl+BlocksTests.swift in Sources */,
 				0D05B3361CADEAB400400C45 /* dispatch_queue_t+ConvenienceTests.swift in Sources */,
 				0D4A4F721CB2F91500B974E5 /* String+NSStringBridgeTests.swift in Sources */,
+				0DC4894E1CC42552005D4084 /* SwiftLogo.swift in Sources */,
 				0D05B3341CADE37100400C45 /* dispatch_queue_t+CancellableTests.swift in Sources */,
 				0D4A4F6F1CB2F90E00B974E5 /* CGImage+ConvenienceTests.swift in Sources */,
 				0D4A4F6E1CB2F90E00B974E5 /* CGImage+Compare.swift in Sources */,
+				0DC4894C1CC42512005D4084 /* CGImage+ImageEffects.swift in Sources */,
 				0D45F4BD1CB57538009B4CD8 /* Optional+ConvenienceTests.swift in Sources */,
 				0D4A4F701CB2F90E00B974E5 /* CGImage+DrawingTests.swift in Sources */,
 				0D05B3381CADEC7100400C45 /* dispatch_semaphore_t+ConvenienceTests.swift in Sources */,
