@@ -106,6 +106,7 @@
 			children = (
 				0DC4894D1CC42552005D4084 /* SwiftLogo.swift */,
 				0DC489501CC42F15005D4084 /* UIImage+ImageEffects.swift */,
+				0D4A4F6B1CB2F90E00B974E5 /* CGImage+Compare.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -147,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				0DC4894F1CC42D56005D4084 /* Utils */,
-				0D4A4F6B1CB2F90E00B974E5 /* CGImage+Compare.swift */,
 				0D4A4F6C1CB2F90E00B974E5 /* CGImage+ConvenienceTests.swift */,
 				0D4A4F6D1CB2F90E00B974E5 /* CGImage+DrawingTests.swift */,
 				0DC4894B1CC42512005D4084 /* CGImage+ImageEffects.swift */,

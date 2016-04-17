@@ -19,20 +19,26 @@ class CGImage_ImageEffects: XCTestCase {
 		}
 	}
 
-	func testOwnImplementation() {
+	func testBlurringImageWithoutTransparency() {
+		let swiftLogo = self.swiftLogo(withTansparency: false)
+		let blurredLogo = try! swiftLogo.imageByApplyingBlurWithRadius(30)
+		expect(blurredLogo).to(matchReferenceImageNamed("BlurWithoutTransparency"))
+	}
+
+	func testBlurringImageWithTransparency() {
+		let swiftLogo = self.swiftLogo(withTansparency: true)
+		let blurredLogo = try! swiftLogo.imageByApplyingBlurWithRadius(30)
+		expect(blurredLogo).to(matchReferenceImageNamed("BlurWithTransparency"))
+	}
+
+	func testBlurringImageWithoutTransparencyIdenticalToAppleImageEffects() {
 		let swiftLogo = self.swiftLogo(withTansparency: false)
 
 		let blurRadius: CGFloat = 30
 		let blurredLogo = try! swiftLogo.imageByApplyingBlurWithRadius(blurRadius)
+		let appleBlur = UIImage(CGImage: swiftLogo).applyBlurWithRadius(blurRadius)
 
-		let uiimage = UIImage(CGImage: swiftLogo)
-		let appleBlur = uiimage.applyBlurWithRadius(blurRadius, tintColor: nil, saturationDeltaFactor: 1)
-
-		expect(appleBlur!.CGImage!).to(recordReferenceImageNamed("own"))
-		expect(blurredLogo).to(recordReferenceImageNamed("apple"))
-	}
-
-	func testAppleImplementation() {
+		expect(blurredLogo.looksIdenticalTo(appleBlur!.CGImage!)).to(beTruthy())
 	}
 
 }

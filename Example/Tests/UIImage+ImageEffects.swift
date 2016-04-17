@@ -141,7 +141,7 @@ public extension UIImage {
 		return applyBlurWithRadius(10, tintColor: effectColor, saturationDeltaFactor: -1.0, maskImage: nil)
 	}
 
-	public func applyBlurWithRadius(blurRadius: CGFloat, tintColor: UIColor?, saturationDeltaFactor: CGFloat, maskImage: UIImage? = nil) -> UIImage? {
+	public func applyBlurWithRadius(blurRadius: CGFloat, tintColor: UIColor? = nil, saturationDeltaFactor: CGFloat = 1, maskImage: UIImage? = nil) -> UIImage? {
 		// Check pre-conditions.
 		if (size.width < 1 || size.height < 1) {
 			print("*** error: invalid size: \(size.width) x \(size.height). Both dimensions must be >= 1: \(self)")
@@ -157,7 +157,7 @@ public extension UIImage {
 		}
 
 		let __FLT_EPSILON__ = CGFloat(FLT_EPSILON)
-		let screenScale = UIScreen.mainScreen().scale
+		let imageScale = self.scale
 		let imageRect = CGRect(origin: CGPointZero, size: size)
 		var effectImage = self
 
@@ -174,7 +174,7 @@ public extension UIImage {
 				return vImage_Buffer(data: data, height: height, width: width, rowBytes: rowBytes)
 			}
 
-			UIGraphicsBeginImageContextWithOptions(size, false, screenScale)
+			UIGraphicsBeginImageContextWithOptions(size, false, imageScale)
 			let effectInContext = UIGraphicsGetCurrentContext()
 
 			CGContextScaleCTM(effectInContext, 1.0, -1.0)
@@ -184,7 +184,7 @@ public extension UIImage {
 			var effectInBuffer = createEffectBuffer(effectInContext)
 
 
-			UIGraphicsBeginImageContextWithOptions(size, false, screenScale)
+			UIGraphicsBeginImageContextWithOptions(size, false, imageScale)
 			let effectOutContext = UIGraphicsGetCurrentContext()
 
 			var effectOutBuffer = createEffectBuffer(effectOutContext)
@@ -204,7 +204,7 @@ public extension UIImage {
 				// ... if d is odd, use three box-blurs of size 'd', centered on the output pixel.
 				//
 
-				let inputRadius = blurRadius * screenScale
+				let inputRadius = blurRadius * imageScale
 				var radius = UInt32(floor(inputRadius * 3.0 * CGFloat(sqrt(2 * M_PI)) / 4 + 0.5))
 				if radius % 2 != 1 {
 					radius += 1 // force radius to be odd so that the three box-blur methodology works.
@@ -258,7 +258,7 @@ public extension UIImage {
 		}
 
 		// Set up output context.
-		UIGraphicsBeginImageContextWithOptions(size, false, screenScale)
+		UIGraphicsBeginImageContextWithOptions(size, false, imageScale)
 		let outputContext = UIGraphicsGetCurrentContext()
 		CGContextScaleCTM(outputContext, 1.0, -1.0)
 		CGContextTranslateCTM(outputContext, 0, -size.height)
@@ -288,6 +288,6 @@ public extension UIImage {
 		let outputImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		
-		return outputImage
+		return UIImage(CGImage: outputImage.CGImage!, scale: self.scale, orientation: .Up)
 	}
 }
