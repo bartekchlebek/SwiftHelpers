@@ -18,6 +18,7 @@ extension CGContext {
 	                                  flipped: Bool = CGContext.isCoordinateSpaceFlippedByDefault) -> CGContext? {
 
 		let colorSpace = CGColorSpaceCreateDeviceRGB()
+
 		let context = CGBitmapContextCreate(
 			nil,
 			Int(size.width),
@@ -26,6 +27,7 @@ extension CGContext {
 			0,
 			colorSpace,
 			CGImageAlphaInfo.PremultipliedFirst.rawValue
+//				| CGBitmapInfo.ByteOrder32Little.rawValue
 		)
 
 		if flipped {

@@ -6,7 +6,7 @@ import SwiftHelpers
 
 //MARK:CGImage helpers
 
-private func areRendersOfImagesEqual(lhs: CGImage, _ rhs: CGImage) -> Bool {
+func areRendersOfImagesEqual(lhs: CGImage, _ rhs: CGImage) -> Bool {
 
 	// Based on FBSnapshotTestCase's implementation. Props to those guys.
 	// https://github.com/facebook/ios-snapshot-test-case/blob/master/FBSnapshotTestCase/Categories/UIImage%2BCompare.m

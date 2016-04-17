@@ -1,6 +1,6 @@
 import CoreGraphics
 
-public typealias DrawRectBlock = (CGContextRef, CGSize) -> ()
+public typealias DrawRectBlock = (CGContextRef, CGSize) throws -> ()
 
 public extension CGImage {
 	private enum Error: ErrorType {
@@ -13,7 +13,7 @@ public extension CGImage {
 	                          @noescape drawRectBlock: DrawRectBlock) throws -> CGImage {
 
 		guard let context = CGContext.deviceContextWithSize(size, flipped: flipped) else { throw Error.ContextSetupFailed }
-		drawRectBlock(context, size)
+		try drawRectBlock(context, size)
 		guard let image = CGBitmapContextCreateImage(context) else { throw Error.GettingImageFromContextFailed }
 		return image
 	}
