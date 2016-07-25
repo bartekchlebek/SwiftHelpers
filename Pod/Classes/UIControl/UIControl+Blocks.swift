@@ -43,6 +43,7 @@ public extension UIControl {
 		}
 	}
 
+	@discardableResult
 	func addActionForControlEvents(_ controlEvents: UIControlEvents, action: Action) -> ActionToken {
 		let token = ActionToken()
 		let proxyTarget = ProxyTarget(handler: action, events: controlEvents)
