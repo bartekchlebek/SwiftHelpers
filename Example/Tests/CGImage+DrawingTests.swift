@@ -4,95 +4,95 @@ import SwiftHelpers
 
 final class CGImage_DrawingTests: XCTestCase {
 
-	func drawTestImageInContext(context: CGContext, size: CGSize) {
+	func drawTestImageInContext(_ context: CGContext, size: CGSize) {
 		// blue background
-		let backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [0, 0, 1, 1])
-		CGContextSetFillColorWithColor(context, backgroundColor)
-		CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height))
+		let backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0, 0, 1, 1])
+		context.setFillColor(backgroundColor!)
+		context.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
 
 		// red oval
-		let ovalPath = CGPathCreateWithEllipseInRect(CGRectMake(0, 50, 50, 50), nil)
-		CGContextAddPath(context, ovalPath)
-		let color = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1, 0, 0, 1])
-		CGContextSetFillColorWithColor(context, color)
-		CGContextFillPath(context)
+		let ovalPath = CGPath(ellipseIn: CGRect(x: 0, y: 50, width: 50, height: 50), transform: nil)
+		context.addPath(ovalPath)
+		let color = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1, 0, 0, 1])
+		context.setFillColor(color!)
+		context.fillPath()
 	}
 
 	func testImageGeneration() {
-		let image = try! CGImage.imageWithSize(CGSizeMake(100, 100), flipped: false) { (context, size) in
+		let image = try! CGImage.image(withSize: CGSize(width: 100, height: 100), flipped: false) { (context, size) in
 			drawTestImageInContext(context, size: size)
 		}
 		expect(image).to(matchReferenceImageNamed("Red50x50OvalInTheTopLeftOfABlue100x100Square"))
 	}
 
 	func testFlippedImageGeneration() {
-		let image = try! CGImage.imageWithSize(CGSizeMake(100, 100), flipped: true) { (context, size) in
+		let image = try! CGImage.image(withSize: CGSize(width: 100, height: 100), flipped: true) { (context, size) in
 			drawTestImageInContext(context, size: size)
 		}
 		expect(image).to(matchReferenceImageNamed("Red50x50OvalInTheBottomLeftOfABlue100x100Square"))
 	}
 
 	func testSwiftLogo() {
-		let image = try! CGImage.imageWithSize(CGSizeMake(256, 256)) { (context, size) in
+		let image = try! CGImage.image(withSize: CGSize(width: 256, height: 256)) { (context, size) in
 
 			let shorterSide = min(size.width, size.height)
-			let badgeSize = CGSizeMake(shorterSide, shorterSide)
-			CGContextTranslateCTM(context, (size.width - badgeSize.width) * 0.5, (size.height - badgeSize.height) * 0.5)
+			let badgeSize = CGSize(width: shorterSide, height: shorterSide)
+			context.translate(x: (size.width - badgeSize.width) * 0.5, y: (size.height - badgeSize.height) * 0.5)
 
-			let badgePath = CGPathCreateMutable()
-			let badgeRect = CGRectMake(0, 0, badgeSize.width, badgeSize.height)
+			let badgePath = CGMutablePath()
+			let badgeRect = CGRect(x: 0, y: 0, width: badgeSize.width, height: badgeSize.height)
 			let cornerRadius = badgeSize.width * 0.25
-			CGPathAddRoundedRect(badgePath, nil, badgeRect, cornerRadius, cornerRadius)
-			CGContextAddPath(context, badgePath)
+			badgePath.addRoundedRect(nil, rect: badgeRect, cornerWidth: cornerRadius, cornerHeight: cornerRadius)
+			context.addPath(badgePath)
 
-			let badgeColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [239 / 255, 81 / 255, 56 / 255, 1])
-			CGContextSetFillColorWithColor(context, badgeColor)
-			CGContextFillPath(context)
+			let badgeColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [239 / 255, 81 / 255, 56 / 255, 1])
+			context.setFillColor(badgeColor!)
+			context.fillPath()
 
 			let swiftLogoAspectRatio: CGFloat = 36.5 / 32.6
 			let swiftLogoWidth = badgeSize.width * 0.75
 			let swiftLogoHeight = swiftLogoWidth / swiftLogoAspectRatio
-			let swiftLogoRect = CGRectMake((badgeSize.width - swiftLogoWidth) * 0.5,
-			                               (badgeSize.height - swiftLogoHeight) * 0.5,
-			                               swiftLogoWidth,
-			                               swiftLogoHeight)
+			let swiftLogoRect = CGRect(x: (badgeSize.width - swiftLogoWidth) * 0.5,
+			                           y: (badgeSize.height - swiftLogoHeight) * 0.5,
+			                           width: swiftLogoWidth,
+			                           height: swiftLogoHeight)
 
-			CGContextTranslateCTM(context, swiftLogoRect.origin.x, swiftLogoRect.origin.y)
+			context.translate(x: swiftLogoRect.origin.x, y: swiftLogoRect.origin.y)
 
 			let horizontalScale = swiftLogoRect.width / 36.5
 			let verticalScale = swiftLogoRect.height / 32.6
-			CGContextScaleCTM(context, horizontalScale, verticalScale)
+			context.scale(x: horizontalScale, y: verticalScale)
 
-			let path = CGPathCreateMutable()
+			let path = CGMutablePath()
 
-			CGPathMoveToPoint(path, nil, 32.5, 22.3)
-			CGPathAddCurveToPoint(path, nil, 32.5, 22.3, 32.5, 22.3, 32.5, 22.3)
-			CGPathAddCurveToPoint(path, nil, 32.5, 22.1, 32.6, 21.9, 32.6, 21.8)
-			CGPathAddCurveToPoint(path, nil, 34.6, 14, 29.8, 4.8, 21.7, 0)
-			CGPathAddCurveToPoint(path, nil, 25.2, 4.8, 26.8, 10.6, 25.4, 15.7)
-			CGPathAddCurveToPoint(path, nil, 25.3, 16.2, 25.1, 16.6, 25, 17)
-			CGPathAddCurveToPoint(path, nil, 24.8, 16.9, 24.6, 16.8, 24.3, 16.6)
-			CGPathAddCurveToPoint(path, nil, 24.3, 16.6, 16.3, 11.5, 7.6, 2.9)
-			CGPathAddCurveToPoint(path, nil, 7.4, 2.7, 12.2, 9.9, 17.8, 15.7)
-			CGPathAddCurveToPoint(path, nil, 15.2, 14.2, 7.9, 9, 3.4, 4.8)
-			CGPathAddCurveToPoint(path, nil, 4, 5.7, 4.6, 6.6, 5.4, 7.5)
-			CGPathAddCurveToPoint(path, nil, 9.2, 12.4, 14.2, 18.4, 20.2, 23)
-			CGPathAddCurveToPoint(path, nil, 16, 25.6, 10, 25.8, 4.1, 23)
-			CGPathAddCurveToPoint(path, nil, 2.6, 22.3, 1.3, 21.5, 0, 20.5)
-			CGPathAddCurveToPoint(path, nil, 2.5, 24.5, 6.4, 28, 11.1, 30)
-			CGPathAddCurveToPoint(path, nil, 16.7, 32.4, 22.3, 32.2, 26.4, 30)
-			CGPathAddLineToPoint(path, nil, 26.4, 30)
-			CGPathAddCurveToPoint(path, nil, 28.1, 28.9, 32.7, 27.2, 35, 31.7)
-			CGPathAddCurveToPoint(path, nil, 35.4, 32.6, 36.5, 27.3, 32.5, 22.3)
-			CGPathCloseSubpath(path)
+			path.moveTo(nil, x: 32.5, y: 22.3)
+			path.addCurve(nil, cp1x: 32.5, cp1y: 22.3, cp2x: 32.5, cp2y: 22.3, endingAtX: 32.5, y: 22.3)
+			path.addCurve(nil, cp1x: 32.5, cp1y: 22.1, cp2x: 32.6, cp2y: 21.9, endingAtX: 32.6, y: 21.8)
+			path.addCurve(nil, cp1x: 34.6, cp1y: 14, cp2x: 29.8, cp2y: 4.8, endingAtX: 21.7, y: 0)
+			path.addCurve(nil, cp1x: 25.2, cp1y: 4.8, cp2x: 26.8, cp2y: 10.6, endingAtX: 25.4, y: 15.7)
+			path.addCurve(nil, cp1x: 25.3, cp1y: 16.2, cp2x: 25.1, cp2y: 16.6, endingAtX: 25, y: 17)
+			path.addCurve(nil, cp1x: 24.8, cp1y: 16.9, cp2x: 24.6, cp2y: 16.8, endingAtX: 24.3, y: 16.6)
+			path.addCurve(nil, cp1x: 24.3, cp1y: 16.6, cp2x: 16.3, cp2y: 11.5, endingAtX: 7.6, y: 2.9)
+			path.addCurve(nil, cp1x: 7.4, cp1y: 2.7, cp2x: 12.2, cp2y: 9.9, endingAtX: 17.8, y: 15.7)
+			path.addCurve(nil, cp1x: 15.2, cp1y: 14.2, cp2x: 7.9, cp2y: 9, endingAtX: 3.4, y: 4.8)
+			path.addCurve(nil, cp1x: 4, cp1y: 5.7, cp2x: 4.6, cp2y: 6.6, endingAtX: 5.4, y: 7.5)
+			path.addCurve(nil, cp1x: 9.2, cp1y: 12.4, cp2x: 14.2, cp2y: 18.4, endingAtX: 20.2, y: 23)
+			path.addCurve(nil, cp1x: 16, cp1y: 25.6, cp2x: 10, cp2y: 25.8, endingAtX: 4.1, y: 23)
+			path.addCurve(nil, cp1x: 2.6, cp1y: 22.3, cp2x: 1.3, cp2y: 21.5, endingAtX: 0, y: 20.5)
+			path.addCurve(nil, cp1x: 2.5, cp1y: 24.5, cp2x: 6.4, cp2y: 28, endingAtX: 11.1, y: 30)
+			path.addCurve(nil, cp1x: 16.7, cp1y: 32.4, cp2x: 22.3, cp2y: 32.2, endingAtX: 26.4, y: 30)
+			path.addLineTo(nil, x: 26.4, y: 30)
+			path.addCurve(nil, cp1x: 28.1, cp1y: 28.9, cp2x: 32.7, cp2y: 27.2, endingAtX: 35, y: 31.7)
+			path.addCurve(nil, cp1x: 35.4, cp1y: 32.6, cp2x: 36.5, cp2y: 27.3, endingAtX: 32.5, y: 22.3)
+			path.closeSubpath()
 
-			CGContextAddPath(context, path)
-			let backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1, 1, 1, 1])
-			CGContextSetFillColorWithColor(context, backgroundColor)
-			CGContextFillPath(context)
+			context.addPath(path)
+			let backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1, 1, 1, 1])
+			context.setFillColor(backgroundColor!)
+			context.fillPath()
 		}
 
 		expect(image).to(matchReferenceImageNamed("SwiftLogo"))
 	}
-
+	
 }

@@ -11,7 +11,7 @@ private final class ProxyTarget {
 	}
 
 	static let selector: Selector = #selector(ProxyTarget.handleActionFromSender(_:event:))
-	@objc func handleActionFromSender(sender: UIControl, event: UIEvent) {
+	@objc func handleActionFromSender(_ sender: UIControl, event: UIEvent) {
 		self.handler(sender: sender, event: event)
 	}
 }
@@ -25,7 +25,7 @@ public extension UIControl {
 		private let key: String
 
 		private init() {
-			self.key = NSUUID().UUIDString
+			self.key = UUID().uuidString
 		}
 	}
 
@@ -43,18 +43,18 @@ public extension UIControl {
 		}
 	}
 
-	func addActionForControlEvents(controlEvents: UIControlEvents, action: Action) -> ActionToken {
+	func addActionForControlEvents(_ controlEvents: UIControlEvents, action: Action) -> ActionToken {
 		let token = ActionToken()
 		let proxyTarget = ProxyTarget(handler: action, events: controlEvents)
 		self.proxyTargets[token.key] = proxyTarget
-		self.addTarget(proxyTarget, action: ProxyTarget.selector, forControlEvents: controlEvents)
+		self.addTarget(proxyTarget, action: ProxyTarget.selector, for: controlEvents)
 
 		return token
 	}
 
-	func removeActionWithToken(token: ActionToken) {
+	func removeActionWithToken(_ token: ActionToken) {
 		guard let proxyHandler = self.proxyTargets[token.key] else { return }
-		self.removeTarget(proxyHandler, action: ProxyTarget.selector, forControlEvents: proxyHandler.events)
+		self.removeTarget(proxyHandler, action: ProxyTarget.selector, for: proxyHandler.events)
 		self.proxyTargets[token.key] = nil
 	}
 }

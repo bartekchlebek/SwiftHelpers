@@ -1,20 +1,19 @@
 import CoreGraphics
 
-public typealias DrawRectBlock = (CGContextRef, CGSize) -> ()
-
 public extension CGImage {
-	private enum Error: ErrorType {
-		case ContextSetupFailed
-		case GettingImageFromContextFailed
+	private enum Error: ErrorProtocol {
+		case contextSetupFailed
+		case gettingImageFromContextFailed
 	}
 
-	static func imageWithSize(size: CGSize,
-	                          flipped: Bool = CGContext.isCoordinateSpaceFlippedByDefault,
-	                          @noescape drawRectBlock: DrawRectBlock) throws -> CGImage {
+	static func image(withSize size: CGSize,
+	                  flipped: Bool = CGContext.isCoordinateSpaceFlippedByDefault,
+	                  drawRectBlock: @noescape (CGContext, CGSize) -> ()) throws -> CGImage {
 
-		guard let context = CGContext.deviceContextWithSize(size, flipped: flipped) else { throw Error.ContextSetupFailed }
+		guard let context = CGContext.deviceContext(withSize: size, flipped: flipped)
+			else { throw Error.contextSetupFailed }
 		drawRectBlock(context, size)
-		guard let image = CGBitmapContextCreateImage(context) else { throw Error.GettingImageFromContextFailed }
+		guard let image = context.makeImage() else { throw Error.gettingImageFromContextFailed }
 		return image
 	}
 }

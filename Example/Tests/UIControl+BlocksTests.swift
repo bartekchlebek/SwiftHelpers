@@ -11,19 +11,19 @@ final class UIControl_BlocksTests: XCTestCase {
 
 		let control = UIControl()
 
-		control.addActionForControlEvents(.TouchDown) { (sender, event) in
+		control.addActionForControlEvents(.touchDown) { (sender, event) in
 			touchDownCallbackCount += 1
 		}
 
-		control.addActionForControlEvents(.TouchUpInside) { (sender, event) in
+		control.addActionForControlEvents(.touchUpInside) { (sender, event) in
 			touchUpCallbackCount += 1
 		}
 
-		control.sendActionsForControlEvents(.TouchDown)
+		control.sendActions(for: .touchDown)
 		expect(touchDownCallbackCount) == 1
 		expect(touchUpCallbackCount) == 0
 
-		control.sendActionsForControlEvents(.TouchUpInside)
+		control.sendActions(for: .touchUpInside)
 		expect(touchDownCallbackCount) == 1
 		expect(touchUpCallbackCount) == 1
 	}
@@ -31,27 +31,27 @@ final class UIControl_BlocksTests: XCTestCase {
 	func testActionBlockParameters() {
 		let control = UIControl()
 
-		control.addActionForControlEvents(.TouchDown) { [weak control] (sender, event) in
+		control.addActionForControlEvents(.touchDown) { [weak control] (sender, event) in
 			// event is falsly nil because sendActionsForControlEvents doesn't create one
 			expect(sender) == control
 		}
 
-		control.sendActionsForControlEvents(.TouchDown)
+		control.sendActions(for: .touchDown)
 	}
 
 	func testRemovingActions() {
 		var callbackCount = 0
 
 		let control = UIControl()
-		let token = control.addActionForControlEvents(.TouchUpInside) { (sender, event) in
+		let token = control.addActionForControlEvents(.touchUpInside) { (sender, event) in
 			callbackCount += 1
 		}
 
-		control.sendActionsForControlEvents(.TouchUpInside)
+		control.sendActions(for: .touchUpInside)
 		expect(callbackCount) == 1
 
 		control.removeActionWithToken(token)
-		control.sendActionsForControlEvents(.TouchUpInside)
+		control.sendActions(for: .touchUpInside)
 		expect(callbackCount) == 1
 	}
 

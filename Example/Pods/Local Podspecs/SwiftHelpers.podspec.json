@@ -1,6 +1,6 @@
 {
   "name": "SwiftHelpers",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "Various Swift helper, extension and convenience stuff.",
   "description": "A collection of various simple helpers and extensions, mostly Swift-only.",
   "homepage": "https://github.com/bartekchlebek/SwiftHelpers",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/bartekchlebek/SwiftHelpers.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "social_media_url": "https://twitter.com/bartekchlebek",
   "platforms": {
@@ -30,6 +30,10 @@
     {
       "name": "Dispatch",
       "source_files": "Pod/Classes/Dispatch/*"
+    },
+    {
+      "name": "Optional",
+      "source_files": "Pod/Classes/Optional/*"
     }
   ]
 }

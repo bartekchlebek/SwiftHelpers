@@ -81,7 +81,7 @@ struct TestScenario<T> {
 		self.movedToIndexes = movedToIndexes
 	}
 
-	init<U>(fromScenario scenario: TestScenario<U>, conversionBlock: U -> T) {
+	init<U>(fromScenario scenario: TestScenario<U>, conversionBlock: (U) -> T) {
 		self.oldItems = scenario.oldItems.map(conversionBlock)
 		self.newItems = scenario.newItems.map(conversionBlock)
 		self.added = scenario.added.map(conversionBlock)
@@ -170,7 +170,7 @@ let fastIdentifiableEquatableTestScenario = TestScenario(fromScenario: testScena
 
 final class DiffTests: XCTestCase {
 
-	func performTestWithContext<T>(context: DiffContext<T>,
+	func performTestWithContext<T>(_ context: DiffContext<T>,
 	                            testScenario: TestScenario<T>,
 	                            elementComparison: (T, T) -> Bool) {
 		let diff = Diff(context)
@@ -189,7 +189,7 @@ final class DiffTests: XCTestCase {
 		expect(indexDiff.movedIndexes.map({ $0.to })) == testScenario.movedToIndexes
 	}
 
-	func performTestWithContext<T: Equatable>(context: DiffContext<T>, testScenario: TestScenario<T>) {
+	func performTestWithContext<T: Equatable>(_ context: DiffContext<T>, testScenario: TestScenario<T>) {
 		self.performTestWithContext(context, testScenario: testScenario, elementComparison: ==)
 	}
 
@@ -200,10 +200,10 @@ final class DiffTests: XCTestCase {
 			oldItemsContainItem: { item in testScenario.oldItems.contains { $0.ID == item.ID} },
 			newItemsContainItem: { item in testScenario.newItems.contains { $0.ID == item.ID} },
 			oldItemWithSameIDAsItem: { item in
-				testScenario.oldItems.indexOf { $0.ID == item.ID }.map { testScenario.oldItems[$0] }
+				testScenario.oldItems.index { $0.ID == item.ID }.map { testScenario.oldItems[$0] }
 			},
 			newItemWithSameIDAsItem: { item in
-				testScenario.newItems.indexOf { $0.ID == item.ID }.map { testScenario.newItems[$0] }
+				testScenario.newItems.index { $0.ID == item.ID }.map { testScenario.newItems[$0] }
 			},
 			isSameInstanceComparator: { $0.ID == $1.ID },
 			isEqualComparator: { ($0.ID == $1.ID) && ($0.property == $1.property) }
@@ -230,7 +230,7 @@ final class DiffTests: XCTestCase {
 			oldItems: testScenario.oldItems,
 			newItems: testScenario.newItems,
 			itemsContainItem: { (items, item) -> Bool in return items.contains { $0.ID == item.ID } },
-			indexOfItemInItems: { (item, items) -> Int? in return items.indexOf { $0.ID == item.ID } },
+			indexOfItemInItems: { (item, items) -> Int? in return items.index { $0.ID == item.ID } },
 			isSameInstanceComparator: { $0.ID == $1.ID },
 			isEqualComparator: { ($0.ID == $1.ID) && ($0.property == $1.property) }
 		)

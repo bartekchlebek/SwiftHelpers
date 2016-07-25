@@ -83,7 +83,7 @@ public struct IndexDiff {
 		var insertionShift = 0
 		var removalShift = 0
 		
-		for (index, row) in rows.enumerate() {
+		for (index, row) in rows.enumerated() {
 			switch (row.lhs, row.rhs) {
 				
 			case (_?, nil):
@@ -95,7 +95,7 @@ public struct IndexDiff {
 				addedIndexes.append(index - removalShift)
 				
 			case (let lhs?, _?):
-				guard let newIndex = newRowsWithoutNils.indexOf({ isSameInstanceComparator(lhs, $0.rhs!) }) else { continue }
+				guard let newIndex = newRowsWithoutNils.index(where: { isSameInstanceComparator(lhs, $0.rhs!) }) else { continue }
 				if (newIndex + removalShift - insertionShift) != index {
 					movedIndexes.append(ChangeDescriptor(from: index, to: newIndex))
 				}

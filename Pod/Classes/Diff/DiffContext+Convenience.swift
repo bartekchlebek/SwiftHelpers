@@ -51,7 +51,7 @@ extension DiffContext {
 extension DiffContext {
 	public init<U: Equatable>(oldItems: [T],
 	            newItems: [T],
-	            instanceIdentifierGetter: T -> U,
+	            instanceIdentifierGetter: (T) -> U,
 	            isEqualComparator: (T, T) -> Bool) {
 		
 		self.init(oldItems: oldItems,
@@ -65,7 +65,7 @@ extension DiffContext {
 extension DiffContext {
 	public init<U: Hashable>(oldItems: [T],
 	            newItems: [T],
-	            instanceIdentifierGetter: T -> U,
+	            instanceIdentifierGetter: (T) -> U,
 	            isEqualComparator: (T, T) -> Bool) {
 		
 		let oldItemsMap = Dictionary(fromSequence: oldItems, usingKeyForSequenceElement: instanceIdentifierGetter)
@@ -102,7 +102,7 @@ extension DiffContext where T: Equatable {
 extension DiffContext where T: Equatable {
 	public init<U: Equatable>(oldItems: [T],
 	            newItems: [T],
-	            instanceIdentifierGetter: T -> U) {
+	            instanceIdentifierGetter: (T) -> U) {
 		
 		self.init(oldItems: oldItems,
 		          newItems: newItems,

@@ -6,14 +6,14 @@ final class String_NSStringBridge: XCTestCase {
 
 	func testNSStringPathWithComponents() {
 		let components = ["/", "User", "Files", "file.png"]
-		let a = NSString.pathWithComponents(components)
+		let a = NSString.path(withComponents: components)
 		let b = String(pathComponents: components)
 		expect(a) == b
 	}
 
 	func testStringByDeletingPathExtension() {
 		let fileWithExtension = "file.png"
-		let a = NSString(string: fileWithExtension).stringByDeletingPathExtension
+		let a = NSString(string: fileWithExtension).deletingPathExtension
 		let b = fileWithExtension.stringByDeletingPathExtension
 		expect(a) == b
 	}
@@ -27,7 +27,7 @@ final class String_NSStringBridge: XCTestCase {
 
 	func testStringByAppendingPathComponent() {
 		let path = "/User/Files"
-		let a = NSString(string: path).stringByAppendingPathComponent("file.png")
+		let a = NSString(string: path).appendingPathComponent("file.png")
 		let b = path.stringByAppendingPathComponent("file.png")
 		expect(a) == b
 	}
