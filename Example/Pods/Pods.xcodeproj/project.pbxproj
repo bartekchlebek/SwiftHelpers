@@ -10,6 +10,13 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>005839564736D239488670391C283FB9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D904E8B1AECF43FCC0708D1E6C2E8411</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>010D09EA7B14A862EF773CC2E746F989</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -20,19 +27,6 @@
 			<string>sourcecode.c.h</string>
 			<key>path</key>
 			<string>Nimble-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>01367D3918675C81D607A661299D2C57</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DiffContext+Convenience.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -50,13 +44,6 @@
 			<string>Sources/NimbleObjectiveC/XCTestObservationCenter+Register.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>033BE70AA6A674FAA066EBFB1DEAC566</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4BDF44C6B4C77D03040CBC8B45CBF953</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>0370C70040B66F76A9B6FF511066625B</key>
 		<dict>
@@ -83,13 +70,6 @@
 			<string>Sources/NimbleObjectiveC/CurrentTestCaseTracker.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05523FDE96BEE653135CB15561FB4DE5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E61EC824512EFD2CE2D54155D3501E23</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>058B5B717B8A88C107F389FD83AD257B</key>
 		<dict>
@@ -120,21 +100,6 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>07F5553371D48B37A7ECE27B2E113F8D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3E8155C38EF0F4E70930BD797174EDAD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>AnyObject</string>
-			<key>path</key>
-			<string>AnyObject</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>08EC4958125DE2F11FCEE0C99CBCBDAD</key>
 		<dict>
 			<key>fileRef</key>
@@ -154,6 +119,21 @@
 			<string>AssertionRecorder.swift</string>
 			<key>path</key>
 			<string>Sources/Nimble/Adapters/AssertionRecorder.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>09414B628C02AB5E36DDCD82F7423D37</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D944D9D6CB870ABF41974DA90A8C9CAC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Dictionary</string>
+			<key>path</key>
+			<string>Dictionary</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -369,21 +349,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>108585F655F4D5BFBCC53D8C0783DDCA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>329BD994E4162A1AB2D78D89CD339374</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>CGContext</string>
-			<key>path</key>
-			<string>CGContext</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>11B978A4653C45679FB94E7D45C6787F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -417,30 +382,18 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>128CFC55E4585F2A31DA08DC3D4906F1</key>
+		<key>15645C61301B2D135DA794429DCD39F7</key>
 		<dict>
-			<key>fileRef</key>
-			<string>14F5B71068C2B8A44F36C80D06E51226</string>
+			<key>children</key>
+			<array>
+				<string>8AEEBF5BE92D431DBA60751C0366BEE9</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>13FCCCBF78548F410E676F8466488D71</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5589DE6B55ABE247A3C06A2EBA3A261B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>14F5B71068C2B8A44F36C80D06E51226</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>String</string>
 			<key>path</key>
-			<string>UIControl+Blocks.swift</string>
+			<string>String</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -564,21 +517,12 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>1AD244CF12EFF2B522DF94D07341F879</key>
+		<key>1AE867B2CC7E8C878660C8465B440A5C</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>5E57E59AC0D73EAEADCE22D9016E7011</string>
-				<string>D11A440E37C0D5BC3C9EE0CF5B221872</string>
-			</array>
+			<key>fileRef</key>
+			<string>50493E54CD0D937E5B9FF2DE7CF2A6B5</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>CGImage</string>
-			<key>path</key>
-			<string>CGImage</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>1C828F90027E64741BC45CC4D3DFC3C2</key>
 		<dict>
@@ -592,6 +536,19 @@
 			<string>LinuxSupport.swift</string>
 			<key>path</key>
 			<string>Sources/Nimble/LinuxSupport.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1E709FA2D99857E58B5B35CA153F778A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AnyObject+Deinit.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -698,18 +655,19 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>25FD08CADF2C55F9307A9A0DB1C48C4B</key>
+		<key>220FBED60FC017E91756FCDCD4EBBC3C</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>4A22A469FADA835548BB9AFD65578695</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DispatchSemaphore+Convenience.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>232F304156DC74AD20A36C5A29268851</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C24C2DE1C04A31E4D64B60F6783941D3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>26F1C98850D1ED8F3DDE84239707721D</key>
 		<dict>
@@ -748,39 +706,10 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>295C30F5270D692A77D6C4AFBB1B454C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E61EC824512EFD2CE2D54155D3501E23</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SequenceType</string>
-			<key>path</key>
-			<string>SequenceType</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2A10F3C40D042D9C5AE1179A823F1123</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EF6F98072EB3655A92BA06CDD01D8573</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>2B44100105D5AECCDB761C58AE1B40F1</key>
 		<dict>
 			<key>fileRef</key>
 			<string>4C75614405A523AB77100A6EA93AFABE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2CA9038B7F34B5F307F2A1381C600F81</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E57E59AC0D73EAEADCE22D9016E7011</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -798,25 +727,19 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
+		<key>2E5E2564B43224019592F0D828C6A71F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D944D9D6CB870ABF41974DA90A8C9CAC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>2E86A0F2870D9F958C93477B2079679F</key>
 		<dict>
 			<key>fileRef</key>
 			<string>9AD8F673825087119EB53F5B88D9BB31</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>30E327D5B34864E0581142E53C354565</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ChangeDescriptor.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>318379F20C2CDE9D5778F5B3970DF1C0</key>
 		<dict>
@@ -847,16 +770,22 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>329BD994E4162A1AB2D78D89CD339374</key>
+		<key>323858A95B3A28288C8CBD484210B6BA</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>50493E54CD0D937E5B9FF2DE7CF2A6B5</string>
+				<string>D904E8B1AECF43FCC0708D1E6C2E8411</string>
+				<string>50D3F2327124B7B6770B9E8D237553CB</string>
+				<string>DECA235BD8FCF6C112BB80D0289E255D</string>
+				<string>8F703A1CEF5C624C7CE9229BD63084D8</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Diff</string>
 			<key>path</key>
-			<string>CGContext+BitmapContext.swift</string>
+			<string>Diff</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -864,13 +793,6 @@
 		<dict>
 			<key>fileRef</key>
 			<string>5521FC8B3C2949C6DBA2310DFEE5A297</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>366BDD8F212762959BE2E11F3E6EC3BD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25FD08CADF2C55F9307A9A0DB1C48C4B</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -1056,19 +978,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3E8155C38EF0F4E70930BD797174EDAD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AnyObject+Deinit.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>3EE4D3F05D7A2C245D1687EFD5C72106</key>
 		<dict>
 			<key>fileRef</key>
@@ -1100,6 +1009,21 @@
 			<string>9C44DB03D7DD7359F9743462AF0B91D9</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>4033701CAF1D401B66DAB713411C04E3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BF8B8CAB188FA10A7BDBE127E70E5586</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SequenceType</string>
+			<key>path</key>
+			<string>SequenceType</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>417FDF770CACC4DE3939B71D0340BA8B</key>
 		<dict>
@@ -1185,6 +1109,52 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>4465AD0E29BDC8D44F1A11A843DE622B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8C02C11A2B28709D4E8550A98588D50F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UIControl</string>
+			<key>path</key>
+			<string>UIControl</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44897B7343CC5F0C4D90C6002D470AE5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5C46BF85D17077A63484C21794F4F7B5</string>
+				<string>CB7DB2008DA5A3EB5A8580116239068E</string>
+				<string>232F304156DC74AD20A36C5A29268851</string>
+				<string>220FBED60FC017E91756FCDCD4EBBC3C</string>
+				<string>1AE867B2CC7E8C878660C8465B440A5C</string>
+				<string>2E5E2564B43224019592F0D828C6A71F</string>
+				<string>005839564736D239488670391C283FB9</string>
+				<string>E18B0B99FB87C7888B2DF01190A27A9C</string>
+				<string>53C1CEAE5EEDD1EAF5279672EB81FCA8</string>
+				<string>C58480CF5EB1394BABE94C4C046D5E22</string>
+				<string>54E3AE89BF2A278A7C1D4C27349F47C4</string>
+				<string>A3E2CE579CD5E6C72CC9EC666E279169</string>
+				<string>7DB1068445CA4CBE99C362F94F4CBA31</string>
+				<string>E302B4B8C04988B98D6F8B5E98576872</string>
+				<string>6103F906147080B853319110F554BD5A</string>
+				<string>56D7331A68BB71C5708317D906167610</string>
+				<string>6F5678A87CDB722816BEB2F65C040DAF</string>
+				<string>9F25F5039D7A3C69D45BB14E70284A97</string>
+				<string>89029BEC25004F074E9EF8822EF65806</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>4872694E1239EBD6C3BF8462CEB43033</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -1248,6 +1218,19 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
+		</dict>
+		<key>4A22A469FADA835548BB9AFD65578695</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CGImage+Drawing.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4A899D9E9D77243EA85CB743CDC496EB</key>
 		<dict>
@@ -1357,27 +1340,31 @@
 				</array>
 			</dict>
 		</dict>
-		<key>5127F9A069F26FF996B7331E754EB293</key>
+		<key>50493E54CD0D937E5B9FF2DE7CF2A6B5</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>6ABC7F3B43BAB4F9B821100FA7279372</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pod</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>Pod</string>
+			<string>ChangeDescriptor.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>5226844B4569FF2244AA86EBC9000977</key>
+		<key>50D3F2327124B7B6770B9E8D237553CB</key>
 		<dict>
-			<key>fileRef</key>
-			<string>3E8155C38EF0F4E70930BD797174EDAD</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiffContext.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>52853CFED9F2FB8D135F723C08D2570D</key>
 		<dict>
@@ -1405,10 +1392,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>53F22D45E437C6ACA3A4763B2A369A5F</key>
+		<key>53C1CEAE5EEDD1EAF5279672EB81FCA8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>01367D3918675C81D607A661299D2C57</string>
+			<string>50D3F2327124B7B6770B9E8D237553CB</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -1425,6 +1412,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>54E3AE89BF2A278A7C1D4C27349F47C4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E6663A34BCD1447CF727D071E60DEDA9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>5521FC8B3C2949C6DBA2310DFEE5A297</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1437,19 +1431,6 @@
 			<string>NimbleEnvironment.swift</string>
 			<key>path</key>
 			<string>Sources/Nimble/Adapters/NimbleEnvironment.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5589DE6B55ABE247A3C06A2EBA3A261B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DiffContext.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1467,6 +1448,13 @@
 			<string>Sources/Nimble/Matchers/BeCloseTo.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>56D7331A68BB71C5708317D906167610</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BF8B8CAB188FA10A7BDBE127E70E5586</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>57A0E5CCAE7BAAB51E9D0B71776B9752</key>
 		<dict>
@@ -1526,20 +1514,25 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>5AB667C8EB9EF565BAF172138A983662</key>
+		<key>5B4F06DFF8D2F232DB803EBB5092D982</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>AC9FAA758264950D23D9802A0E6A6E3C</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Optional</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>Optional</string>
+			<string>GenericError.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5C46BF85D17077A63484C21794F4F7B5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1E709FA2D99857E58B5B35CA153F778A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>5C5A99B7B94AC3F093630FA7436D8CEA</key>
 		<dict>
@@ -1561,19 +1554,6 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>5E57E59AC0D73EAEADCE22D9016E7011</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>CGImage+Convenience.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>5EB1BB48265588ED5647BF03ACA672DB</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1584,6 +1564,28 @@
 			<string>text.script.sh</string>
 			<key>path</key>
 			<string>Pods-SwiftHelpers_Tests-frameworks.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6103F906147080B853319110F554BD5A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96B7201CB434FCF9E54243650892BE45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>622187304414B3A129E97AAA0319A337</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>96B7201CB434FCF9E54243650892BE45</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Optional</string>
+			<key>path</key>
+			<string>Optional</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1681,30 +1683,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6ABC7F3B43BAB4F9B821100FA7279372</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>07F5553371D48B37A7ECE27B2E113F8D</string>
-				<string>108585F655F4D5BFBCC53D8C0783DDCA</string>
-				<string>1AD244CF12EFF2B522DF94D07341F879</string>
-				<string>8063E320156F36CC75F6C217D6FCDE29</string>
-				<string>D5D8282CE659E64E673158D1085B9BF4</string>
-				<string>F859EDC16DEE312DBA56DD8ED9FFF541</string>
-				<string>5AB667C8EB9EF565BAF172138A983662</string>
-				<string>295C30F5270D692A77D6C4AFBB1B454C</string>
-				<string>8CC28142FDB8B5BBE19D86064EFBFCB6</string>
-				<string>709518283E99D3D873445DB2F865F9FD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Classes</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>6B5BCFCE3E26C2196B6D3F29747F278F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1731,13 +1709,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6BE81AE90CCD5DC4FAF4BE91E7219BCA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>329BD994E4162A1AB2D78D89CD339374</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>6E84C80A9430021DC41C55BE8BEAE433</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1753,20 +1724,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>709518283E99D3D873445DB2F865F9FD</key>
+		<key>6F5678A87CDB722816BEB2F65C040DAF</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>14F5B71068C2B8A44F36C80D06E51226</string>
-			</array>
+			<key>fileRef</key>
+			<string>8AEEBF5BE92D431DBA60751C0366BEE9</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>UIControl</string>
-			<key>path</key>
-			<string>UIControl</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>7124840412B441F4A6C00BEF17C6343C</key>
 		<dict>
@@ -1916,6 +1879,13 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>7DB1068445CA4CBE99C362F94F4CBA31</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5B4F06DFF8D2F232DB803EBB5092D982</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
 			<key>children</key>
@@ -1989,27 +1959,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8063E320156F36CC75F6C217D6FCDE29</key>
+		<key>806ABD3C5FE26A879A978C8FDEB39D84</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>8ECF5B9FB338E84236AFAD00067D6815</string>
+				<string>D208D406C26BC11B40CB2AA23FF4C46D</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Dictionary</string>
+			<string>CGContext</string>
 			<key>path</key>
-			<string>Dictionary</string>
+			<string>CGContext</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>80AB388DFF5117944D65D1BD64246BAA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>30E327D5B34864E0581142E53C354565</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>82096B6867AD82F23E4797A4B3258292</key>
 		<dict>
@@ -2040,38 +2003,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>83E3E57B13147AE8E57779008762A9A7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Diff.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>8412BBE75EA79E7AF3FB25A58148FAD0</key>
 		<dict>
 			<key>fileRef</key>
 			<string>CE0898C27CFB560F99F55AC925F2BCAE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>84EBD34037E5131E60BD73FA22B08D5D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DispatchQueue+Convenience.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>871333D762C9F0636F87493AA298B4DD</key>
 		<dict>
@@ -2088,59 +2025,14 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>881C3C504FA8AF6557001AACA5F3701A</key>
+		<key>89029BEC25004F074E9EF8822EF65806</key>
 		<dict>
 			<key>fileRef</key>
-			<string>9AC5DEB204D171C0AE54C4B56E81F4E9</string>
+			<string>8C02C11A2B28709D4E8550A98588D50F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>8C06305B348DAF99905DCF50F1F96BD0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5226844B4569FF2244AA86EBC9000977</string>
-				<string>6BE81AE90CCD5DC4FAF4BE91E7219BCA</string>
-				<string>2CA9038B7F34B5F307F2A1381C600F81</string>
-				<string>C898CA7E22B01A65E1351A8F273DDA1D</string>
-				<string>80AB388DFF5117944D65D1BD64246BAA</string>
-				<string>EDD96068671704241DB546550A21CA64</string>
-				<string>9E9B27BB9F919A4D5A63B0AAEE8106D9</string>
-				<string>53F22D45E437C6ACA3A4763B2A369A5F</string>
-				<string>13FCCCBF78548F410E676F8466488D71</string>
-				<string>CDCDA69E3D7A0CD37EDEC93D0D2ADFC0</string>
-				<string>9EB5CC0D50B0D2C5F4FFDAFE0D053D1A</string>
-				<string>366BDD8F212762959BE2E11F3E6EC3BD</string>
-				<string>2A10F3C40D042D9C5AE1179A823F1123</string>
-				<string>ED4A4800D454223994F228645A8173D9</string>
-				<string>05523FDE96BEE653135CB15561FB4DE5</string>
-				<string>881C3C504FA8AF6557001AACA5F3701A</string>
-				<string>033BE70AA6A674FAA066EBFB1DEAC566</string>
-				<string>128CFC55E4585F2A31DA08DC3D4906F1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>8CC28142FDB8B5BBE19D86064EFBFCB6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9AC5DEB204D171C0AE54C4B56E81F4E9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>String</string>
-			<key>path</key>
-			<string>String</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8ECF5B9FB338E84236AFAD00067D6815</key>
+		<key>8AEEBF5BE92D431DBA60751C0366BEE9</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2149,7 +2041,33 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>Dictionary+SequenceMap.swift</string>
+			<string>String+NSStringBridge.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8C02C11A2B28709D4E8550A98588D50F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UIControl+Blocks.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8F703A1CEF5C624C7CE9229BD63084D8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>IndexDiff.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2222,6 +2140,36 @@
 			<key>xcLanguageSpecificationIdentifier</key>
 			<string>xcode.lang.ruby</string>
 		</dict>
+		<key>93CCBFCA454A27786AC215E6D58C962E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9FB70D174663471BDF9B6933E9A92BF9</string>
+				<string>E6663A34BCD1447CF727D071E60DEDA9</string>
+				<string>99F64C5355F0F28C45E67C4F903C029C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Dispatch</string>
+			<key>path</key>
+			<string>Dispatch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96B7201CB434FCF9E54243650892BE45</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Optional+Convenience.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>970CE9105988B8DB409B3E2C6699C211</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2270,7 +2218,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9AC5DEB204D171C0AE54C4B56E81F4E9</key>
+		<key>99F64C5355F0F28C45E67C4F903C029C</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2279,7 +2227,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>String+NSStringBridge.swift</string>
+			<string>DispatchSemaphore+Convenience.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2313,19 +2261,25 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>9E9B27BB9F919A4D5A63B0AAEE8106D9</key>
+		<key>9F25F5039D7A3C69D45BB14E70284A97</key>
 		<dict>
 			<key>fileRef</key>
-			<string>83E3E57B13147AE8E57779008762A9A7</string>
+			<string>4BDF44C6B4C77D03040CBC8B45CBF953</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>9EB5CC0D50B0D2C5F4FFDAFE0D053D1A</key>
+		<key>9FB70D174663471BDF9B6933E9A92BF9</key>
 		<dict>
-			<key>fileRef</key>
-			<string>84EBD34037E5131E60BD73FA22B08D5D</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DispatchQueue+Cancellable.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A06739C8BB48C9548CA89B2B42639424</key>
 		<dict>
@@ -2333,7 +2287,7 @@
 			<string>BAE31A5C3C9230879D106E2A8DB30660</string>
 			<key>buildPhases</key>
 			<array>
-				<string>8C06305B348DAF99905DCF50F1F96BD0</string>
+				<string>44897B7343CC5F0C4D90C6002D470AE5</string>
 				<string>750FFF3BD4DB2C38F12EC97A17E9C565</string>
 				<string>B9C5088DDE01ACE5E16AA6E102355E61</string>
 			</array>
@@ -2393,6 +2347,13 @@
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>A3E2CE579CD5E6C72CC9EC666E279169</key>
+		<dict>
+			<key>fileRef</key>
+			<string>99F64C5355F0F28C45E67C4F903C029C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>A54EA0C535126455D84C9FCCBD53C93C</key>
 		<dict>
@@ -2472,25 +2433,42 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>AC9FAA758264950D23D9802A0E6A6E3C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Optional+Convenience.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>ACA6415F8E0910F08E5426D4C7EA6BB4</key>
 		<dict>
 			<key>fileRef</key>
 			<string>56A8BD540875334F8C6382DEE9139073</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE6F183D4C014AC0AB910C5A25B3FA40</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1E709FA2D99857E58B5B35CA153F778A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>AnyObject</string>
+			<key>path</key>
+			<string>AnyObject</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AED32C5B37D3BC65B573C39E2950B45F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E589BFE148C774BFBD514B15716EF935</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pod</string>
+			<key>path</key>
+			<string>Pod</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>AFBBFD268D5697EAABB3F688BD48A234</key>
 		<dict>
@@ -2506,6 +2484,22 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>B1A2733FCD978320D2CD1807AF3C8538</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C24C2DE1C04A31E4D64B60F6783941D3</string>
+				<string>4A22A469FADA835548BB9AFD65578695</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>CGImage</string>
+			<key>path</key>
+			<string>CGImage</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>B3EA1BC5E1B9D0608A3E8C13C7DA6ADF</key>
 		<dict>
 			<key>fileRef</key>
@@ -2519,19 +2513,6 @@
 			<string>65DEF1EA97592C0CC511B50D9C3F719D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>B84D17A867AFBD4DB91585AAE60D4583</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DispatchQueue+Cancellable.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>B868973A4E6032F6C427D0CE3A5B3EAD</key>
 		<dict>
@@ -2670,6 +2651,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>BF8B8CAB188FA10A7BDBE127E70E5586</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SequenceType+Find.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>C1C02D3D894E909E749810B344E21B8F</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -2732,6 +2726,19 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>C24C2DE1C04A31E4D64B60F6783941D3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CGImage+Convenience.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>C2E703825EE3A8BF8AF3450C7D9F1C8B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2784,6 +2791,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>C58480CF5EB1394BABE94C4C046D5E22</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9FB70D174663471BDF9B6933E9A92BF9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>C5E187B2E8CB281EE4B248C2781EBE5F</key>
 		<dict>
 			<key>containerPortal</key>
@@ -2796,13 +2810,6 @@
 			<string>A06739C8BB48C9548CA89B2B42639424</string>
 			<key>remoteInfo</key>
 			<string>SwiftHelpers</string>
-		</dict>
-		<key>C898CA7E22B01A65E1351A8F273DDA1D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D11A440E37C0D5BC3C9EE0CF5B221872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>CA7CB84F269703583A2E75C3F0337DD8</key>
 		<dict>
@@ -2817,6 +2824,28 @@
 			<string>CEC22C73C1608DFA5D5D78BDCB218219</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>CB7DB2008DA5A3EB5A8580116239068E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D208D406C26BC11B40CB2AA23FF4C46D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CBFDA547944AACAE57F0D4FF3D1AB595</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5B4F06DFF8D2F232DB803EBB5092D982</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ErrorProtocol</string>
+			<key>path</key>
+			<string>ErrorProtocol</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>CD6AAF545FACB48305359948BC6510A6</key>
 		<dict>
@@ -2841,13 +2870,6 @@
 			<string>Target Support Files/Pods-SwiftHelpers_Tests</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CDCDA69E3D7A0CD37EDEC93D0D2ADFC0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B84D17A867AFBD4DB91585AAE60D4583</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>CDE2EBAB50F1ECB3D8F48BCD807406DD</key>
 		<dict>
@@ -2939,7 +2961,7 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>D11A440E37C0D5BC3C9EE0CF5B221872</key>
+		<key>D208D406C26BC11B40CB2AA23FF4C46D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2948,7 +2970,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>CGImage+Drawing.swift</string>
+			<string>CGContext+BitmapContext.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3083,25 +3105,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D5D8282CE659E64E673158D1085B9BF4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>30E327D5B34864E0581142E53C354565</string>
-				<string>83E3E57B13147AE8E57779008762A9A7</string>
-				<string>5589DE6B55ABE247A3C06A2EBA3A261B</string>
-				<string>01367D3918675C81D607A661299D2C57</string>
-				<string>EF6F98072EB3655A92BA06CDD01D8573</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Diff</string>
-			<key>path</key>
-			<string>Diff</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>D60CA58540AD6823DB5386E0485B1068</key>
 		<dict>
 			<key>children</key>
@@ -3142,6 +3145,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>D904E8B1AECF43FCC0708D1E6C2E8411</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Diff.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>D92936273BD7C1E55C0F14FE1E4CD11E</key>
 		<dict>
 			<key>fileRef</key>
@@ -3149,12 +3165,38 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>D944D9D6CB870ABF41974DA90A8C9CAC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Dictionary+SequenceMap.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>DBD6CB0E1FE5ECBD3D3FD21100C615B5</key>
 		<dict>
 			<key>fileRef</key>
 			<string>092DE1C215B6D419EA5E987E22132998</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>DECA235BD8FCF6C112BB80D0289E255D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DiffContext+Convenience.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>DF9369EC05676227AB2CF53BB84D5EFA</key>
 		<dict>
@@ -3192,6 +3234,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>E18B0B99FB87C7888B2DF01190A27A9C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DECA235BD8FCF6C112BB80D0289E255D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E302B4B8C04988B98D6F8B5E98576872</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8F703A1CEF5C624C7CE9229BD63084D8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>E46F07B30B528475A0394B1F098A1ADC</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3207,7 +3263,32 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E61EC824512EFD2CE2D54155D3501E23</key>
+		<key>E589BFE148C774BFBD514B15716EF935</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE6F183D4C014AC0AB910C5A25B3FA40</string>
+				<string>806ABD3C5FE26A879A978C8FDEB39D84</string>
+				<string>B1A2733FCD978320D2CD1807AF3C8538</string>
+				<string>09414B628C02AB5E36DDCD82F7423D37</string>
+				<string>323858A95B3A28288C8CBD484210B6BA</string>
+				<string>93CCBFCA454A27786AC215E6D58C962E</string>
+				<string>CBFDA547944AACAE57F0D4FF3D1AB595</string>
+				<string>622187304414B3A129E97AAA0319A337</string>
+				<string>4033701CAF1D401B66DAB713411C04E3</string>
+				<string>15645C61301B2D135DA794429DCD39F7</string>
+				<string>4465AD0E29BDC8D44F1A11A843DE622B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Classes</string>
+			<key>path</key>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E6663A34BCD1447CF727D071E60DEDA9</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -3216,7 +3297,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>SequenceType+Find.swift</string>
+			<string>DispatchQueue+Convenience.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3256,7 +3337,7 @@
 				<string>AB23F664FD23711DBF46B4285CEBB9B9</string>
 				<string>68355C2D06CEE5BB434CD2BAD2FAFE45</string>
 				<string>399BE352FF5610FB125696E4F956F6E4</string>
-				<string>5127F9A069F26FF996B7331E754EB293</string>
+				<string>AED32C5B37D3BC65B573C39E2950B45F</string>
 				<string>801C449C772468A6578151103AD5CAB6</string>
 			</array>
 			<key>isa</key>
@@ -3303,20 +3384,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>ED4A4800D454223994F228645A8173D9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AC9FAA758264950D23D9802A0E6A6E3C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EDD96068671704241DB546550A21CA64</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8ECF5B9FB338E84236AFAD00067D6815</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>EEB396CDF6560F33414B7787F126F118</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3329,19 +3396,6 @@
 			<string>AdapterProtocols.swift</string>
 			<key>path</key>
 			<string>Sources/Nimble/Adapters/AdapterProtocols.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EF6F98072EB3655A92BA06CDD01D8573</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>IndexDiff.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3503,23 +3557,6 @@
 			<string>text.plist.xml</string>
 			<key>path</key>
 			<string>Pods-SwiftHelpers_Tests-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F859EDC16DEE312DBA56DD8ED9FFF541</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B84D17A867AFBD4DB91585AAE60D4583</string>
-				<string>84EBD34037E5131E60BD73FA22B08D5D</string>
-				<string>25FD08CADF2C55F9307A9A0DB1C48C4B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Dispatch</string>
-			<key>path</key>
-			<string>Dispatch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>

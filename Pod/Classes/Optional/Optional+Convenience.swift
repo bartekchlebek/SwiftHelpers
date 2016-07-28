@@ -6,3 +6,10 @@ public extension Optional {
 		}
 	}
 }
+
+public extension Optional {
+	func unwrapped(throwing error: @autoclosure () -> ErrorProtocol = genericError) throws -> Wrapped {
+		guard let value = self else { throw error() }
+		return value
+	}
+}
