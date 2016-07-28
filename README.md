@@ -68,6 +68,7 @@ let image = try CGImage.imageWithSize(CGSizeMake(256, 256)) { (context, size) in
 
 ### Optional+Convenience
 
+#### iff
 ```swift
 let optional: Optional<T>
 optional.iff { object in
@@ -75,6 +76,15 @@ optional.iff { object in
   // object is the wrapped value
   // if optional == .None, nothing happens
 }
+```
+
+#### unwrapped
+```swift
+//let optional: String?
+let string = try optional.unwrapped() // will throw if optional is nil
+```
+```swift
+try optional.unwrapped(throwing: myError) // provide custom error you wish to be thrown
 ```
 
 ## Installation
