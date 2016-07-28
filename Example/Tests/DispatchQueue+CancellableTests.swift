@@ -9,7 +9,8 @@ final class DispatchQueue_CancellableTests: XCTestCase {
 		_ = DispatchQueue.global(attributes: .qosDefault).cancellableAfter(0.1) {
 			blockExecuted = true
 		}
-		expect(blockExecuted).toEventually(beTruthy())
+
+		expect(blockExecuted).toEventually(beTruthy(), timeout: 2)
 	}
 
 	func testCancelation() {
