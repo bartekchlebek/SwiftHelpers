@@ -1,5 +1,5 @@
-struct GenericError: ErrorProtocol {
+struct GenericError: Error {
 
 }
 
-public let genericError: ErrorProtocol = GenericError()
+public let genericError: Error = GenericError()

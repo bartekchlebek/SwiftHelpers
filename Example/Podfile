@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'SwiftHelpers_Tests' do
   pod 'SwiftHelpers', :path => '../'
-  pod 'Nimble', :git => 'https://github.com/norio-nomura/Nimble.git', :branch => 'nn-swift-3-compatibility'
+  pod 'Nimble', :git => 'https://github.com/bartekchlebek/Nimble.git'
 end
 
 post_install do |installer|

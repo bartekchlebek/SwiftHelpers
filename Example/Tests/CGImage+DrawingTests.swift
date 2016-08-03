@@ -37,7 +37,7 @@ final class CGImage_DrawingTests: XCTestCase {
 
 			let shorterSide = min(size.width, size.height)
 			let badgeSize = CGSize(width: shorterSide, height: shorterSide)
-			context.translate(x: (size.width - badgeSize.width) * 0.5, y: (size.height - badgeSize.height) * 0.5)
+			context.translateBy(x: (size.width - badgeSize.width) * 0.5, y: (size.height - badgeSize.height) * 0.5)
 
 			let badgePath = CGMutablePath()
 			let badgeRect = CGRect(x: 0, y: 0, width: badgeSize.width, height: badgeSize.height)
@@ -57,11 +57,11 @@ final class CGImage_DrawingTests: XCTestCase {
 			                           width: swiftLogoWidth,
 			                           height: swiftLogoHeight)
 
-			context.translate(x: swiftLogoRect.origin.x, y: swiftLogoRect.origin.y)
+			context.translateBy(x: swiftLogoRect.origin.x, y: swiftLogoRect.origin.y)
 
 			let horizontalScale = swiftLogoRect.width / 36.5
 			let verticalScale = swiftLogoRect.height / 32.6
-			context.scale(x: horizontalScale, y: verticalScale)
+			context.scaleBy(x: horizontalScale, y: verticalScale)
 
 			let path = CGMutablePath()
 

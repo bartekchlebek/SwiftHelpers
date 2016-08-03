@@ -1,6 +1,6 @@
 import Dispatch
 
-private let syncQueue = DispatchQueue(label: "com.SwiftHelpers.Dispatch.CancellableSyncQueue", attributes: .serial)
+private let syncQueue = DispatchQueue(label: "com.SwiftHelpers.Dispatch.CancellableSyncQueue")
 
 public final class CancelationToken {
 	private var cancelled = false
@@ -16,7 +16,7 @@ public extension DispatchQueue {
 	func cancellableAfter(_ seconds: Double, block: () -> Void) -> CancelationToken {
 		let cancelationToken = CancelationToken()
 
-		self.after(seconds) {
+		self.asyncAfter(seconds) {
 
 			var isCancelled = false
 			syncQueue.sync {

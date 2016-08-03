@@ -2,7 +2,7 @@ import XCTest
 import Nimble
 import SwiftHelpers
 
-private enum CustomError: ErrorProtocol {
+private enum CustomError: Error {
 	case error
 }
 

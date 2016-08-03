@@ -1,7 +1,7 @@
 import CoreGraphics
 
 public extension CGImage {
-	private enum Error: ErrorProtocol {
+	private enum Error: Swift.Error {
 		case contextSetupFailed
 		case gettingImageFromContextFailed
 	}

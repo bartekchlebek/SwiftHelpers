@@ -39,9 +39,9 @@ internal class NimbleEnvironment {
     init() {
         let timeoutQueue: DispatchQueue
         if #available(OSX 10.10, *) {
-            timeoutQueue = .global(attributes: .qosUserInitiated)
+            timeoutQueue = .global(qos: .userInitiated)
         } else {
-            timeoutQueue = .global(attributes: .priorityHigh)
+            timeoutQueue = .global(priority: .high)
         }
 
         awaiter = Awaiter(

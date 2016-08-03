@@ -124,19 +124,19 @@ let testScenarioSource = TestScenario(
 	added: [
 		(ID: "9", property: "i"),
 		(ID: "10", property: "j"),
-	],
+		],
 	removed: [
 		(ID: "3", property: "c"),
 		(ID: "4", property: "d"),
-	],
+		],
 	updatedFrom: [
 		(ID: "5", property: "e"),
 		(ID: "6", property: "f"),
-	],
+		],
 	updatedTo: [
 		(ID: "5", property: "E"),
 		(ID: "6", property: "F"),
-	],
+		],
 	addedIndexes: [6, 7],
 	removedIndexes: [2, 3],
 	updatedIndexes: [4, 5],
@@ -176,10 +176,11 @@ final class DiffTests: XCTestCase {
 		let diff = Diff(context)
 		print(diff.added)
 		print(testScenario.added)
-		expect(diff.added.elementsEqual(testScenario.added, isEquivalent: elementComparison)) == true
-		expect(diff.removed.elementsEqual(testScenario.removed, isEquivalent: elementComparison)) == true
-		expect(diff.updated.map{ $0.from }.elementsEqual(testScenario.updatedFrom, isEquivalent: elementComparison)) == true
-		expect(diff.updated.map{ $0.to }.elementsEqual(testScenario.updatedTo, isEquivalent: elementComparison)) == true
+		expect(diff.added.elementsEqual(testScenario.added, by: elementComparison)).to(beTrue())
+		expect(diff.added.elementsEqual(testScenario.added, by: elementComparison)) == true
+		expect(diff.removed.elementsEqual(testScenario.removed, by: elementComparison)) == true
+		expect(diff.updated.map{ $0.from }.elementsEqual(testScenario.updatedFrom, by: elementComparison)) == true
+		expect(diff.updated.map{ $0.to }.elementsEqual(testScenario.updatedTo, by: elementComparison)) == true
 
 		let indexDiff = IndexDiff(context)
 		expect(indexDiff.addedIndexes) == testScenario.addedIndexes

@@ -9,25 +9,24 @@ PODS:
   - SwiftHelpers/Optional (0.2.0)
 
 DEPENDENCIES:
-  - Nimble (from `https://github.com/norio-nomura/Nimble.git`, branch `nn-swift-3-compatibility`)
+  - Nimble (from `https://github.com/bartekchlebek/Nimble.git`)
   - SwiftHelpers (from `../`)
 
 EXTERNAL SOURCES:
   Nimble:
-    :branch: nn-swift-3-compatibility
-    :git: https://github.com/norio-nomura/Nimble.git
+    :git: https://github.com/bartekchlebek/Nimble.git
   SwiftHelpers:
     :path: ../
 
 CHECKOUT OPTIONS:
   Nimble:
-    :commit: 0dd42e0dac9f37962088e74ee78f0e3c412b227f
-    :git: https://github.com/norio-nomura/Nimble.git
+    :commit: 9004da6663088c2e3736fc083843447b1d366e22
+    :git: https://github.com/bartekchlebek/Nimble.git
 
 SPEC CHECKSUMS:
   Nimble: c5b995b4cd57789ec44b0cfb79640fc00e61a8c7
   SwiftHelpers: 193fae93e441085d024b0dce428b4a252330a643
 
-PODFILE CHECKSUM: ba493a743cb493688178676249d933bc64704b97
+PODFILE CHECKSUM: 26322490d1a134048d7515211eb56480129535da
 
 COCOAPODS: 1.0.1

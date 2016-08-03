@@ -43,8 +43,8 @@ extension NSSet : NMBContainer {}
     var count: Int { get }
 }
 
-extension HashTable : NMBCollection {} // Corelibs Foundation does not include these classes yet
-extension MapTable : NMBCollection {}
+extension NSHashTable : NMBCollection {} // Corelibs Foundation does not include these classes yet
+extension NSMapTable : NMBCollection {}
 #else
 public protocol NMBCollection {
     var count: Int { get }
@@ -99,7 +99,7 @@ extension NSNumber : NMBDoubleConvertible {
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
-    formatter.locale = Locale(localeIdentifier: "en_US_POSIX")
+    formatter.locale = Locale(identifier: "en_US_POSIX")
 
     return formatter
 }()

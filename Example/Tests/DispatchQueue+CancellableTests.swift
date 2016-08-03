@@ -6,7 +6,7 @@ final class DispatchQueue_CancellableTests: XCTestCase {
 
 	func testWithoutCancelation() {
 		var blockExecuted = false
-		_ = DispatchQueue.global(attributes: .qosDefault).cancellableAfter(0.1) {
+		_ = DispatchQueue.global(qos: .default).cancellableAfter(0.1) {
 			blockExecuted = true
 		}
 
@@ -14,7 +14,7 @@ final class DispatchQueue_CancellableTests: XCTestCase {
 	}
 
 	func testCancelation() {
-		let cancelationToken = DispatchQueue.global(attributes: .qosDefault).cancellableAfter(0.1) {
+		let cancelationToken = DispatchQueue.global(qos: .default).cancellableAfter(0.1) {
 			fail()
 		}
 		cancelationToken.cancel()

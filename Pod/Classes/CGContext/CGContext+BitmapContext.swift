@@ -10,8 +10,8 @@ extension CGContext {
 	}
 
 	public func flipCoordinateSpace() {
-		self.translate(x: 0, y: CGFloat(self.height))
-		self.scale(x: 1, y: -1)
+		self.translateBy(x: 0, y: CGFloat(self.height))
+		self.scaleBy(x: 1, y: -1)
 	}
 
 	static func deviceContext(withSize size: CGSize,
