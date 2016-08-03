@@ -32,7 +32,7 @@ public struct Diff<T> {
 		}
 		
 		for oldItem in oldItems {
-			if let newItem = newItemWithSameIDAsItem(oldItem) where !isEqualComparator(oldItem, newItem) {
+			if let newItem = newItemWithSameIDAsItem(oldItem), !isEqualComparator(oldItem, newItem) {
 				let itemUpdateInfo = ChangeDescriptor(from: oldItem, to: newItem)
 				updatedItems.append(itemUpdateInfo)
 			}

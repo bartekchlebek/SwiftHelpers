@@ -34,8 +34,8 @@ public struct IndexDiff {
 			
 			let oldItem: T? = (oldItems.count > oldIndex) ? oldItems[oldIndex] : nil
 			let newItem: T? = (newItems.count > newIndex) ? newItems[newIndex] : nil
-			
-			if let oldItem = oldItem, newItem = newItem {
+
+			if let oldItem = oldItem, let newItem = newItem {
 				let matchExistsOnBothSides = newItemsContainItem(oldItem)
 				if matchExistsOnBothSides {
 					if shouldSwitch {

@@ -15,7 +15,7 @@ final class DispatchSemaphore_ConvenienceTests: XCTestCase {
 		}
 
 		expect(blockExecuted) == false
-		semaphore.waitForever()
+		_ = semaphore.waitForever()
 		expect(blockExecuted) == true
 	}
 
