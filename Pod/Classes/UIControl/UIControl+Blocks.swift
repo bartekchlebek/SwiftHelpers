@@ -12,19 +12,19 @@ private final class ProxyTarget {
 
 	static let selector: Selector = #selector(ProxyTarget.handleActionFromSender(_:event:))
 	@objc func handleActionFromSender(_ sender: UIControl, event: UIEvent) {
-		self.handler(sender: sender, event: event)
+		self.handler(sender, event)
 	}
 }
 
 private var proxyTargetsAssociatedObjectTag: UInt8 = 0
 
 public extension UIControl {
-	typealias Action = (sender: UIControl, event: UIEvent) -> Void
+	typealias Action = (_ sender: UIControl, _ event: UIEvent) -> Void
 
 	struct ActionToken {
-		private let key: String
+		fileprivate let key: String
 
-		private init() {
+		fileprivate init() {
 			self.key = UUID().uuidString
 		}
 	}

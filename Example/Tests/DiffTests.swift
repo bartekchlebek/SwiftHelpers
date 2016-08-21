@@ -172,7 +172,7 @@ final class DiffTests: XCTestCase {
 
 	func performTestWithContext<T>(_ context: DiffContext<T>,
 	                            testScenario: TestScenario<T>,
-	                            elementComparison: (T, T) -> Bool) {
+	                            elementComparison: @escaping (T, T) -> Bool) {
 		let diff = Diff(context)
 		print(diff.added)
 		print(testScenario.added)

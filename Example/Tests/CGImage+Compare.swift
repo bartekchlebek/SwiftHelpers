@@ -6,15 +6,15 @@ import SwiftHelpers
 
 //MARK:CGImage helpers
 
-private func areRendersOfImagesEqual(_ lhs: CGImage, _ rhs: CGImage) -> Bool {
+private func areRendersOfImagesEqual(_ lhsImage: CGImage, _ rhsImage: CGImage) -> Bool {
 
 	// Based on FBSnapshotTestCase's implementation. Props to those guys.
 	// https://github.com/facebook/ios-snapshot-test-case/blob/master/FBSnapshotTestCase/Categories/UIImage%2BCompare.m
 
-	guard lhs.size == rhs.size else { return false }
-	let minimumBytesPerRow = min(lhs.bytesPerRow, rhs.bytesPerRow)
+	guard lhsImage.size == rhsImage.size else { return false }
+	let minimumBytesPerRow = min(lhsImage.bytesPerRow, rhsImage.bytesPerRow)
 
-	let imageSizeBytes = lhs.height * minimumBytesPerRow
+	let imageSizeBytes = lhsImage.height * minimumBytesPerRow
 
 	let lhsImagePixels = calloc(1, imageSizeBytes)!
 	let rhsImagePixels = calloc(1, imageSizeBytes)!
@@ -24,7 +24,7 @@ private func areRendersOfImagesEqual(_ lhs: CGImage, _ rhs: CGImage) -> Bool {
 		free(rhsImagePixels)
 	}
 
-	let bitmapContextForImage: (CGImage, buffer: UnsafeMutablePointer<Void>) -> CGContext? = { image, buffer in
+	let bitmapContextForImage: (CGImage, _ buffer: UnsafeMutableRawPointer) -> CGContext? = { image, buffer in
 		CGContext(data: buffer,
 		          width: image.width,
 		          height: image.height,
@@ -35,12 +35,11 @@ private func areRendersOfImagesEqual(_ lhs: CGImage, _ rhs: CGImage) -> Bool {
 	}
 
 	guard let
-		lhsImageContext = bitmapContextForImage(lhs, buffer: lhsImagePixels),
-		let rhsImageContext = bitmapContextForImage(rhs, buffer: rhsImagePixels)
+		lhsImageContext = bitmapContextForImage(lhsImage, lhsImagePixels),
+		let rhsImageContext = bitmapContextForImage(rhsImage, rhsImagePixels)
 		else { return false }
-
-	lhsImageContext.draw(in: CGRect(x: 0, y: 0, width: lhs.size.width, height: lhs.size.height), image: lhs)
-	rhsImageContext.draw(in: CGRect(x: 0, y: 0, width: rhs.size.width, height: rhs.size.height), image: rhs)
+	lhsImageContext.draw(lhsImage, in: CGRect(x: 0, y: 0, width: lhsImage.size.width, height: lhsImage.size.height))
+	rhsImageContext.draw(rhsImage, in: CGRect(x: 0, y: 0, width: rhsImage.size.width, height: rhsImage.size.height))
 
 	return memcmp(lhsImagePixels, rhsImagePixels, imageSizeBytes) == 0
 }
@@ -55,7 +54,7 @@ private func CGImageCreateWithPNGDataProvider(_ source: CGDataProvider,
 
 private extension CGImage {
 	func saveToPNGFileAtURL(_ URL: Foundation.URL) -> Bool {
-		guard let destination = CGImageDestinationCreateWithURL(URL, kUTTypePNG, 1, nil) else { return false }
+		guard let destination = CGImageDestinationCreateWithURL(URL as CFURL, kUTTypePNG, 1, nil) else { return false }
 		CGImageDestinationAddImage(destination, self, nil)
 		return CGImageDestinationFinalize(destination)
 	}

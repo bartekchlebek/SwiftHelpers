@@ -1,7 +1,7 @@
 import Dispatch
 
 public extension DispatchQueue {
-	func asyncAfter(_ seconds: Double, execute work: @convention(block) () -> Swift.Void) {
-		self.asyncAfter(deadline: .now() + 1, execute: work)
+	func asyncAfter(_ seconds: Double, execute work: @escaping () -> Void) {
+		self.asyncAfter(deadline: .now() + seconds, execute: work)
 	}
 }

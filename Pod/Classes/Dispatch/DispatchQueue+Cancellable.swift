@@ -3,8 +3,8 @@ import Dispatch
 private let syncQueue = DispatchQueue(label: "com.SwiftHelpers.Dispatch.CancellableSyncQueue")
 
 public final class CancelationToken {
-	private var cancelled = false
-	private init() { }
+	fileprivate var cancelled = false
+	fileprivate init() { }
 	public func cancel() {
 		syncQueue.sync {
 			self.cancelled = true
@@ -13,7 +13,7 @@ public final class CancelationToken {
 }
 
 public extension DispatchQueue {
-	func cancellableAfter(_ seconds: Double, block: () -> Void) -> CancelationToken {
+	func cancellableAfter(_ seconds: Double, block: @escaping () -> Void) -> CancelationToken {
 		let cancelationToken = CancelationToken()
 
 		self.asyncAfter(seconds) {
