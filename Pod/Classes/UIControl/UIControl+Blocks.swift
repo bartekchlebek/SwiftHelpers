@@ -1,3 +1,4 @@
+#if os(iOS)
 import UIKit
 import ObjectiveC
 
@@ -59,3 +60,4 @@ public extension UIControl {
 		self.proxyTargets[token.key] = nil
 	}
 }
+#endif
