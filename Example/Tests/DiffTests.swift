@@ -298,4 +298,30 @@ final class DiffTests: XCTestCase {
 		)
 		self.performTestWithContext(context, testScenario: fastIdentifiableEquatableTestScenario)
 	}
+
+	func testIndexDiffWithOneInsertion() {
+		let a = [
+			"1",
+			"2",
+			"3",
+			"4",
+		]
+		let b = [
+			"1",
+			"NEW",
+			"2",
+			"3",
+			"4",
+		]
+		let context = DiffContext(oldItems: a, newItems: b)
+		let indexDiff = IndexDiff(context)
+		expect(indexDiff.addedIndexes) == [1]
+		expect(indexDiff.removedIndexes) == []
+		expect(indexDiff.updatedIndexes) == []
+		expect(indexDiff.movedIndexes.count) == 0
+	}
+}
+
+extension String: FastIdentifiable {
+	public var ID: String { return self }
 }
