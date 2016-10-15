@@ -11,10 +11,10 @@ public protocol FastIdentifiable: Identifiable {
 extension DiffContext {
 	public init(oldItems: [T],
 	            newItems: [T],
-	            itemsContainItem: ([T], T) -> Bool,
-	            indexOfItemInItems: (T, [T]) -> Int?,
-	            isSameInstanceComparator: (T, T) -> Bool,
-	            isEqualComparator: (T, T) -> Bool) {
+	            itemsContainItem: @escaping ([T], T) -> Bool,
+	            indexOfItemInItems: @escaping (T, [T]) -> Int?,
+	            isSameInstanceComparator: @escaping (T, T) -> Bool,
+	            isEqualComparator: @escaping (T, T) -> Bool) {
 		
 		self.init(
 			oldItems: oldItems,
@@ -32,8 +32,8 @@ extension DiffContext {
 extension DiffContext {
 	public init(oldItems: [T],
 	            newItems: [T],
-	            isSameInstanceComparator: (T, T) -> Bool,
-	            isEqualComparator: (T, T) -> Bool) {
+	            isSameInstanceComparator: @escaping (T, T) -> Bool,
+	            isEqualComparator: @escaping (T, T) -> Bool) {
 		
 		self.init(
 			oldItems: oldItems,
@@ -51,8 +51,8 @@ extension DiffContext {
 extension DiffContext {
 	public init<U: Equatable>(oldItems: [T],
 	            newItems: [T],
-	            instanceIdentifierGetter: T -> U,
-	            isEqualComparator: (T, T) -> Bool) {
+	            instanceIdentifierGetter: @escaping (T) -> U,
+	            isEqualComparator: @escaping (T, T) -> Bool) {
 		
 		self.init(oldItems: oldItems,
 		          newItems: newItems,
@@ -65,8 +65,8 @@ extension DiffContext {
 extension DiffContext {
 	public init<U: Hashable>(oldItems: [T],
 	            newItems: [T],
-	            instanceIdentifierGetter: T -> U,
-	            isEqualComparator: (T, T) -> Bool) {
+	            instanceIdentifierGetter: @escaping (T) -> U,
+	            isEqualComparator: @escaping (T, T) -> Bool) {
 		
 		let oldItemsMap = Dictionary(fromSequence: oldItems, usingKeyForSequenceElement: instanceIdentifierGetter)
 		let newItemsMap = Dictionary(fromSequence: newItems, usingKeyForSequenceElement: instanceIdentifierGetter)
@@ -89,7 +89,7 @@ extension DiffContext {
 extension DiffContext where T: Equatable {
 	public init(oldItems: [T],
 	            newItems: [T],
-	            isSameInstanceComparator: (T, T) -> Bool) {
+	            isSameInstanceComparator: @escaping (T, T) -> Bool) {
 		
 		self.init(oldItems: oldItems,
 		          newItems: newItems,
@@ -102,7 +102,7 @@ extension DiffContext where T: Equatable {
 extension DiffContext where T: Equatable {
 	public init<U: Equatable>(oldItems: [T],
 	            newItems: [T],
-	            instanceIdentifierGetter: T -> U) {
+	            instanceIdentifierGetter: @escaping (T) -> U) {
 		
 		self.init(oldItems: oldItems,
 		          newItems: newItems,
@@ -115,7 +115,7 @@ extension DiffContext where T: Equatable {
 extension DiffContext where T: Identifiable {
 	public init(oldItems: [T],
 	            newItems: [T],
-	            isEqualComparator: (T, T) -> Bool) {
+	            isEqualComparator: @escaping (T, T) -> Bool) {
 		
 		self.init(oldItems: oldItems,
 		          newItems: newItems,
@@ -140,7 +140,7 @@ extension DiffContext where T: Identifiable, T: Equatable {
 extension DiffContext where T: FastIdentifiable {
 	public init(oldItems: [T],
 	            newItems: [T],
-	            isEqualComparator: (T, T) -> Bool) {
+	            isEqualComparator: @escaping (T, T) -> Bool) {
 		
 		self.init(
 			oldItems: oldItems,

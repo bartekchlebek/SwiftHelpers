@@ -81,7 +81,7 @@ struct TestScenario<T> {
 		self.movedToIndexes = movedToIndexes
 	}
 
-	init<U>(fromScenario scenario: TestScenario<U>, conversionBlock: U -> T) {
+	init<U>(fromScenario scenario: TestScenario<U>, conversionBlock: (U) -> T) {
 		self.oldItems = scenario.oldItems.map(conversionBlock)
 		self.newItems = scenario.newItems.map(conversionBlock)
 		self.added = scenario.added.map(conversionBlock)
@@ -124,19 +124,19 @@ let testScenarioSource = TestScenario(
 	added: [
 		(ID: "9", property: "i"),
 		(ID: "10", property: "j"),
-	],
+		],
 	removed: [
 		(ID: "3", property: "c"),
 		(ID: "4", property: "d"),
-	],
+		],
 	updatedFrom: [
 		(ID: "5", property: "e"),
 		(ID: "6", property: "f"),
-	],
+		],
 	updatedTo: [
 		(ID: "5", property: "E"),
 		(ID: "6", property: "F"),
-	],
+		],
 	addedIndexes: [6, 7],
 	removedIndexes: [2, 3],
 	updatedIndexes: [4, 5],
@@ -170,16 +170,17 @@ let fastIdentifiableEquatableTestScenario = TestScenario(fromScenario: testScena
 
 final class DiffTests: XCTestCase {
 
-	func performTestWithContext<T>(context: DiffContext<T>,
+	func performTestWithContext<T>(_ context: DiffContext<T>,
 	                            testScenario: TestScenario<T>,
-	                            elementComparison: (T, T) -> Bool) {
+	                            elementComparison: @escaping (T, T) -> Bool) {
 		let diff = Diff(context)
 		print(diff.added)
 		print(testScenario.added)
-		expect(diff.added.elementsEqual(testScenario.added, isEquivalent: elementComparison)) == true
-		expect(diff.removed.elementsEqual(testScenario.removed, isEquivalent: elementComparison)) == true
-		expect(diff.updated.map{ $0.from }.elementsEqual(testScenario.updatedFrom, isEquivalent: elementComparison)) == true
-		expect(diff.updated.map{ $0.to }.elementsEqual(testScenario.updatedTo, isEquivalent: elementComparison)) == true
+		expect(diff.added.elementsEqual(testScenario.added, by: elementComparison)).to(beTrue())
+		expect(diff.added.elementsEqual(testScenario.added, by: elementComparison)) == true
+		expect(diff.removed.elementsEqual(testScenario.removed, by: elementComparison)) == true
+		expect(diff.updated.map{ $0.from }.elementsEqual(testScenario.updatedFrom, by: elementComparison)) == true
+		expect(diff.updated.map{ $0.to }.elementsEqual(testScenario.updatedTo, by: elementComparison)) == true
 
 		let indexDiff = IndexDiff(context)
 		expect(indexDiff.addedIndexes) == testScenario.addedIndexes
@@ -189,7 +190,7 @@ final class DiffTests: XCTestCase {
 		expect(indexDiff.movedIndexes.map({ $0.to })) == testScenario.movedToIndexes
 	}
 
-	func performTestWithContext<T: Equatable>(context: DiffContext<T>, testScenario: TestScenario<T>) {
+	func performTestWithContext<T: Equatable>(_ context: DiffContext<T>, testScenario: TestScenario<T>) {
 		self.performTestWithContext(context, testScenario: testScenario, elementComparison: ==)
 	}
 
@@ -200,10 +201,10 @@ final class DiffTests: XCTestCase {
 			oldItemsContainItem: { item in testScenario.oldItems.contains { $0.ID == item.ID} },
 			newItemsContainItem: { item in testScenario.newItems.contains { $0.ID == item.ID} },
 			oldItemWithSameIDAsItem: { item in
-				testScenario.oldItems.indexOf { $0.ID == item.ID }.map { testScenario.oldItems[$0] }
+				testScenario.oldItems.index { $0.ID == item.ID }.map { testScenario.oldItems[$0] }
 			},
 			newItemWithSameIDAsItem: { item in
-				testScenario.newItems.indexOf { $0.ID == item.ID }.map { testScenario.newItems[$0] }
+				testScenario.newItems.index { $0.ID == item.ID }.map { testScenario.newItems[$0] }
 			},
 			isSameInstanceComparator: { $0.ID == $1.ID },
 			isEqualComparator: { ($0.ID == $1.ID) && ($0.property == $1.property) }
@@ -230,7 +231,7 @@ final class DiffTests: XCTestCase {
 			oldItems: testScenario.oldItems,
 			newItems: testScenario.newItems,
 			itemsContainItem: { (items, item) -> Bool in return items.contains { $0.ID == item.ID } },
-			indexOfItemInItems: { (item, items) -> Int? in return items.indexOf { $0.ID == item.ID } },
+			indexOfItemInItems: { (item, items) -> Int? in return items.index { $0.ID == item.ID } },
 			isSameInstanceComparator: { $0.ID == $1.ID },
 			isEqualComparator: { ($0.ID == $1.ID) && ($0.property == $1.property) }
 		)
@@ -297,4 +298,30 @@ final class DiffTests: XCTestCase {
 		)
 		self.performTestWithContext(context, testScenario: fastIdentifiableEquatableTestScenario)
 	}
+
+	func testIndexDiffWithOneInsertion() {
+		let a = [
+			"1",
+			"2",
+			"3",
+			"4",
+		]
+		let b = [
+			"1",
+			"NEW",
+			"2",
+			"3",
+			"4",
+		]
+		let context = DiffContext(oldItems: a, newItems: b)
+		let indexDiff = IndexDiff(context)
+		expect(indexDiff.addedIndexes) == [1]
+		expect(indexDiff.removedIndexes) == []
+		expect(indexDiff.updatedIndexes) == []
+		expect(indexDiff.movedIndexes.count) == 0
+	}
+}
+
+extension String: FastIdentifiable {
+	public var ID: String { return self }
 }

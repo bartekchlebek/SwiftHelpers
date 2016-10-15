@@ -1,8 +1,15 @@
 public extension Optional {
-	func iff(@noescape block: Wrapped -> Void) {
+	func iff(_ block: (Wrapped) -> Void) {
 		switch self {
-		case .Some(let value): block(value)
-		case .None: return
+		case .some(let value): block(value)
+		case .none: return
 		}
+	}
+}
+
+public extension Optional {
+	func unwrapped(throwing error: @autoclosure () -> Error = genericError) throws -> Wrapped {
+		guard let value = self else { throw error() }
+		return value
 	}
 }

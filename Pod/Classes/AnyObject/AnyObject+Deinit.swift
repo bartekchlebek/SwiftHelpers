@@ -5,7 +5,7 @@ private var associatedObjectTag: UInt8 = 0
 private final class DeinitBlockWrapper {
 	let block: () -> Void
 
-	init(block: () -> Void) {
+	init(block: @escaping () -> Void) {
 		self.block = block
 	}
 
@@ -14,7 +14,7 @@ private final class DeinitBlockWrapper {
 	}
 }
 
-func onDeinitOfObject<T: AnyObject>(object: T, performAction action: () -> Void) {
+func onDeinit<T: AnyObject>(of object: T, performAction action: @escaping () -> Void) {
 	let getDeinitActions = {
 		return objc_getAssociatedObject(object, &associatedObjectTag) as? NSMutableArray
 	}
@@ -26,5 +26,5 @@ func onDeinitOfObject<T: AnyObject>(object: T, performAction action: () -> Void)
 	}
 
 	let deinitActions = getDeinitActions() ?? createAndSetDeinitActions()
-	deinitActions.addObject(DeinitBlockWrapper(block: action))
+	deinitActions.add(DeinitBlockWrapper(block: action))
 }

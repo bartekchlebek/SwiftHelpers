@@ -2,9 +2,15 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 
-target 'SwiftHelpers_Tests', :exclusive => true do
+target 'SwiftHelpers_Tests' do
   pod 'SwiftHelpers', :path => '../'
+  pod 'Nimble', :git => 'https://github.com/norio-nomura/Nimble', :branch => 'swift3-beta-6'
+end
 
-  pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '3.0'
+    end
+  end
 end

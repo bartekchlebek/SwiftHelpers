@@ -1,24 +1,33 @@
 PODS:
-  - Nimble (3.2.0)
-  - Quick (0.9.1)
-  - SwiftHelpers (0.1.0):
-    - SwiftHelpers/Diff (= 0.1.0)
-    - SwiftHelpers/Dispatch (= 0.1.0)
-  - SwiftHelpers/Diff (0.1.0)
-  - SwiftHelpers/Dispatch (0.1.0)
+  - Nimble (5.0.0-alpha.30p1)
+  - SwiftHelpers (0.2.0):
+    - SwiftHelpers/Diff (= 0.2.0)
+    - SwiftHelpers/Dispatch (= 0.2.0)
+    - SwiftHelpers/Optional (= 0.2.0)
+  - SwiftHelpers/Diff (0.2.0)
+  - SwiftHelpers/Dispatch (0.2.0)
+  - SwiftHelpers/Optional (0.2.0)
 
 DEPENDENCIES:
-  - Nimble (~> 3.0)
-  - Quick (~> 0.8)
+  - Nimble (from `https://github.com/norio-nomura/Nimble`, branch `swift3-beta-6`)
   - SwiftHelpers (from `../`)
 
 EXTERNAL SOURCES:
+  Nimble:
+    :branch: swift3-beta-6
+    :git: https://github.com/norio-nomura/Nimble
   SwiftHelpers:
     :path: ../
 
-SPEC CHECKSUMS:
-  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
-  Quick: a5221fc21788b6aeda934805e68b061839bc3165
-  SwiftHelpers: 1466a35e050a0520a816615fdccfee47bbe47872
+CHECKOUT OPTIONS:
+  Nimble:
+    :commit: 7bf338a703225a732bcd1cdc2e74b0fcc019424c
+    :git: https://github.com/norio-nomura/Nimble
 
-COCOAPODS: 0.39.0
+SPEC CHECKSUMS:
+  Nimble: c5b995b4cd57789ec44b0cfb79640fc00e61a8c7
+  SwiftHelpers: 193fae93e441085d024b0dce428b4a252330a643
+
+PODFILE CHECKSUM: d6b716fc93fda4377b208895b0ac7dd8e8f1843e
+
+COCOAPODS: 1.0.1
