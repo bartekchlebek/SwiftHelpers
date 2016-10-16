@@ -14,21 +14,21 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
   s.requires_arc = true
 
-  s.source_files = 'Source/Classes/**/*'
+  s.source_files = 'Source/**/*'
 
   s.subspec 'Diff' do |cs|
     cs.source_files = [
-      'Source/Classes/Diff/*',
-      'Source/Classes/Dictionary/Dictionary+SequenceMap.swift',
-      'Source/Classes/SequenceType/SequenceType+Find.swift'
+      'Source/Diff/*',
+      'Source/Dictionary/Dictionary+SequenceMap.swift',
+      'Source/SequenceType/SequenceType+Find.swift'
     ]
   end
 
   s.subspec 'Dispatch' do |cs|
-    cs.source_files = ‘Source/Classes/Dispatch/*'
+    cs.source_files = 'Source/Dispatch/*'
   end
 
   s.subspec 'Optional' do |cs|
-    cs.source_files = 'Source/Classes/Optional/*'
+    cs.source_files = 'Source/Optional/*'
   end
 end

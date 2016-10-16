@@ -14,26 +14,27 @@
   },
   "social_media_url": "https://twitter.com/bartekchlebek",
   "platforms": {
-    "ios": "8.0"
+    "ios": "8.0",
+    "osx": "10.10"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
+  "source_files": "Source/**/*",
   "subspecs": [
     {
       "name": "Diff",
       "source_files": [
-        "Pod/Classes/Diff/*",
-        "Pod/Classes/Dictionary/Dictionary+SequenceMap.swift",
-        "Pod/Classes/SequenceType/SequenceType+Find.swift"
+        "Source/Diff/*",
+        "Source/Dictionary/Dictionary+SequenceMap.swift",
+        "Source/SequenceType/SequenceType+Find.swift"
       ]
     },
     {
       "name": "Dispatch",
-      "source_files": "Pod/Classes/Dispatch/*"
+      "source_files": "Source/Dispatch/*"
     },
     {
       "name": "Optional",
-      "source_files": "Pod/Classes/Optional/*"
+      "source_files": "Source/Optional/*"
     }
   ]
 }

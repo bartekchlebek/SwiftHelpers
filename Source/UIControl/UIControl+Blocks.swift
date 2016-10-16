@@ -6,7 +6,7 @@ private final class ProxyTarget {
 	let handler: UIControl.Action
 	let events: UIControlEvents
 
-	init(handler: UIControl.Action, events: UIControlEvents) {
+	init(handler: @escaping UIControl.Action, events: UIControlEvents) {
 		self.handler = handler
 		self.events = events
 	}
@@ -45,7 +45,7 @@ public extension UIControl {
 	}
 
 	@discardableResult
-	func addActionForControlEvents(_ controlEvents: UIControlEvents, action: Action) -> ActionToken {
+	func addActionForControlEvents(_ controlEvents: UIControlEvents, action: @escaping Action) -> ActionToken {
 		let token = ActionToken()
 		let proxyTarget = ProxyTarget(handler: action, events: controlEvents)
 		self.proxyTargets[token.key] = proxyTarget
